@@ -2,6 +2,7 @@
 import Project from '../project/project.jsx'
 import Race from '../race/race.jsx'
 import Country from '../country/country.jsx'
+import Fraction from '../fraction/fraction.jsx'
 
 export default function Index() {
     //Когда страница сгенерирована
@@ -20,6 +21,9 @@ export default function Index() {
             //Запись расположения пунктов меню за вычетом отсутпа из стиля
             items[e.id] = e.offsetTop - parseInt(style.scrollMarginTop, 10);
         });
+
+        //Выставление первого элемента активным
+        ReplaceActive(Object.keys(items)[0]);
 
         //Добавление события прокрутки в документ
         $(document).on("scroll", function () {
@@ -66,6 +70,7 @@ export default function Index() {
             <Project />
             <Race />
             <Country />
+            <Fraction />
         </div>
     )
 }
