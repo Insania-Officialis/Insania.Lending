@@ -85,12 +85,14 @@
 }
 
 .project__image {
+    width: 50%;
     max-width: 50%;
 }
 
 .collection__items {
     display: flex;
     align-items: center;
+    gap: 1rem;
 }
 
 .collection__item-block {
@@ -111,5 +113,6 @@
 
 .collection__image {
     border-radius: 100%;
+    width: 50%;
     max-width: 50%;
 }

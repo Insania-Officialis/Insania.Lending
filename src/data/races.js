@@ -1,15 +1,20 @@
-﻿import human from '/images/human.png'
-import elf from '/images/elf.png'
-import dwarf from '/images/dwarf.png'
-import orc from '/images/orc.png'
-import goblin from '/images/goblin.png'
-import troll from '/images/troll.png'
-import ogre from '/images/ogre.png'
-import vampire from '/images/vampire.png'
+﻿import default_image from '/images/default.png'
+
 import alv from '/images/alv.png'
+import antorpozavr from '/images/antorpozavr.png'
 import danu from '/images/danu.png'
-import metamorf from '/images/metamorf.png'
+import dwarf from '/images/dwarf.png'
+import elf from '/images/elf.png'
 import elvin from '/images/elvin.jpg'
+import goblin from '/images/goblin.png'
+import human from '/images/human.png'
+import ichthyid from '/images/ichthyid.png'
+import metamorf from '/images/metamorf.png'
+import mraat from '/images/mraat.png'
+import ogre from '/images/ogre.png'
+import orc from '/images/orc.png'
+import troll from '/images/troll.png'
+import vampire from '/images/vampire.png'
 
 export const races = [
     {
@@ -46,13 +51,13 @@ export const races = [
         id: 6,
         name: 'АНТРОПОЗАВРЫ',
         description: 'Антропозавры - одна из самых молодых рас Асфалии. Созданная посредством божественной помощи в скрещении людей и остатков сил Древних, они заняли остров на юго-западе материка. Они прекрасные войны, презирающую магию, кроме божественной. Их общество разделено на касты, между которыми невозможно никакое движение. Антропозавры часто встречаются в виде наёмников, которых нанимают через правительственный орган Мергерской Унии. Вся их жизнь - служение без амбиций и лишних эмоций',
-        image: null
+        image: antorpozavr
     },
     {
         id: 7,
         name: 'МРААТЫ',
         description: 'Мрааты - малоизвестная раса на Зимнем архипелаге, что расположен на северо-западе Асфалии. Огромные саблезубые кошки, которые обрели разум. Благодаря альвам, которые прибыли на архипелаг, разум некоторых мраатов ничем не уступает остальным разумным, хотя большинство из них остаются очень умными животными. Они общаются посреством мыслеообразов. Их общество матриархально и подчиняется старшей самке прайда. Но каждый прайд чтит богиню Мраа и императриц, которых она ставит во главе Альвраатской империи.',
-        image: null
+        image: mraat
     },
     {
         id: 8,
@@ -64,7 +69,7 @@ export const races = [
         id: 9,
         name: 'ИХТИДЫ',
         description: 'Ихтиды - остатки некогда могущественного народа, вторгнувшегося в Асфалию во главе с кровожадной богиней Ал\'морой. Потомки предателей, что не захотели дальнейшего кровопролития и предали свою богиню, за что получили земли во внутреннем море на северо-востоке материка, названного в честь них морем Отвергнутых. Окружённые не самыми дружелюбными соседями, которые видели в них убийц своих родичей, ихтиды предочли закрыться в своём государстве. Ныне редко, кто может увидеть их за пределами Царства Банду. Лишь морской образ жизни и мирное поведение пока спасает этот малочисленный народ от исчезновения.',
-        image: null
+        image: ichthyid
     },
     {
         id: 10,
