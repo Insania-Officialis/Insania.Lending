@@ -1,8 +1,10 @@
-﻿import NavigationMenu from '../navigation/navigation_menu.jsx'
-import Project from '../project/project.jsx'
-import Race from '../race/race.jsx'
+﻿import AboutUs from '../about_us/about_us.jsx'
 import Country from '../country/country.jsx'
 import Fraction from '../fraction/fraction.jsx'
+import NavigationMenu from '../navigation/navigation_menu.jsx'
+import News from '../news/news.jsx'
+import Race from '../race/race.jsx'
+import Project from '../project/project.jsx'
 
 export default function Index() {
     //Когда страница сгенерирована
@@ -71,6 +73,8 @@ export default function Index() {
             <Race />
             <Country />
             <Fraction />
+            <News />
+            <AboutUs />
         </div>
     )
 }

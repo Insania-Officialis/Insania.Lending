@@ -1,58 +1,68 @@
 ﻿import default_image from '/images/default.png'
 
+import aristocracy from '/images/aristocracy.png'
+import clergy from '/images/clergy.png'
+import criminality from '/images/criminality.png'
+import factionless from '/images/factionless.png'
+import government from '/images/government.png'
+import intelligentsia from '/images/intelligentsia.png'
+import magicians from '/images/magicians.png'
+import merchants from '/images/merchants.png'
+import military from '/images/military.png'
+
 export const fractions = [
     {
         id: 1,
         name: 'ПРАВИТЕЛЬСТВО',
-        description: 'Правительство - ',
-        image: default_image
+        description: 'Правители государств, судебные, законодательные и исполнительные органы (если они есть), представители в других государствах, который определяют внутреннюю и внешнюю политику, управляют различными сферами государства, осуществляют контроль за исполнением приказов и судебные дела высшего уровня',
+        image: government
     },
     {
         id: 2,
         name: 'ЗНАТЬ',
         description: 'Знать - ',
-        image: default_image
+        image: aristocracy
     },
     {
         id: 3,
         name: 'ДУХОВЕНСТВО',
         description: 'Духовенство - ',
-        image: default_image
+        image: clergy
     },
     {
         id: 4,
         name: 'МАГИ',
         description: 'Маги - ',
-        image: default_image
+        image: magicians
     },
     {
         id: 5,
         name: 'ВОЕННЫЕ',
         description: 'Военные - ',
-        image: default_image
+        image: military
     },
     {
         id: 6,
         name: 'КУПЕЧЕСТВО',
         description: 'Купечество - ',
-        image: default_image
+        image: merchants
     },
     {
         id: 7,
         name: 'ПРЕСТУПНОСТЬ',
         description: 'Преступность - ',
-        image: default_image
+        image: criminality
     },
     {
         id: 8,
         name: 'ИНТЕЛЛИГЕНЦИЯ',
         description: 'Интеллигенция - ',
-        image: default_image
+        image: intelligentsia
     },
     {
         id: 9,
         name: 'БЕСФРАКЦИОННИКИ',
         description: 'Бесфракционники - ',
-        image: default_image
+        image: factionless
     }
 ]

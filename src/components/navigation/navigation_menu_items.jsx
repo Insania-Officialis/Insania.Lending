@@ -7,8 +7,8 @@ export default function NavigationItems() {
             <NavigationButton href="#race">О РАСАХ</NavigationButton>
             <NavigationButton href="#country">О СТРАНАХ</NavigationButton>
             <NavigationButton href="#fraction">О ФРАКЦИЯХ</NavigationButton>
-            <NavigationButton>О НАС</NavigationButton>
-            <NavigationButton>НОВОСТИ</NavigationButton>
+            <NavigationButton href="#news">НОВОСТИ</NavigationButton>
+            <NavigationButton href="#about_us">О НАС</NavigationButton>
         </>
     )
 }

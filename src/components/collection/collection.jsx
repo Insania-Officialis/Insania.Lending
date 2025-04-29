@@ -1,4 +1,4 @@
-﻿import { use, useState } from 'react'
+﻿import { useState } from 'react'
 
 import CollectionItem from '../collection/collection_item.jsx'
 

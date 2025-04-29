@@ -98,6 +98,7 @@ a {
 .logo__text {
   font-family: "Ofont ru Optimus";
   font-size: 1.25rem;
+  cursor: default;
 }
 
 .authorization__button {
@@ -107,6 +108,7 @@ a {
   border-radius: 0.5rem;
 }
 .authorization__button:hover {
+  background-color: hsl(0, 0%, 20%);
   cursor: pointer;
 }
 
@@ -154,4 +156,31 @@ a {
   border-radius: 100%;
   width: 50%;
   max-width: 50%;
+}
+
+.news__item-block {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  gap: 1rem;
+}
+.news__item-block.news__item-block--active {
+  flex: 2;
+}
+
+.news__image {
+  width: 50%;
+  max-width: 50%;
+}
+
+.about-us__table {
+  text-align: left;
+  width: 75%;
+}
+.about-us__table tr {
+  line-height: 3rem;
+}
+.about-us__table td {
+  width: 30%;
 }

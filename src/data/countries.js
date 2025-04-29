@@ -147,7 +147,7 @@ export const countries = [
     {
         id: 21,
         name: 'КОРОЛЕВСТВО ВЕРВИРУНГ',
-        description: '',
+        description: 'Королевство Вервирунг - ',
         image: kingdom_vervirung
     },
     {
