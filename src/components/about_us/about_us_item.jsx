@@ -1,4 +1,4 @@
-﻿export default function AboutUs({ postion_title, naming, link_vk, email }) {
+﻿export default function AboutUs({ postion_title, naming, link_vk }) {
     return (
         <>
             <tr>

@@ -1,4 +1,4 @@
-{
+﻿{
   "version": "0.2.0",
   "configurations": [
     {
@@ -12,6 +12,13 @@
       "type": "chrome",
       "request": "launch",
       "name": "localhost (Chrome)",
+      "url": "http://localhost:58882",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "firefox",
+      "request": "launch",
+      "name": "localhost (Firefox)",
       "url": "http://localhost:58882",
       "webRoot": "${workspaceFolder}"
     }
