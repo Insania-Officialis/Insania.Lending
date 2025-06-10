@@ -53,10 +53,13 @@ export default function Collection({ collection, maxElement }) {
         //Получение "крайнего значения"
         let last = Math.floor(maxElement / 2);
 
+        //Получение индекса по идентификатору
+        let index = collection.findIndex(x => x.id === id) + 1;
+
         //Проход по количеству отображаемых элементов
         for (let i = -last; i <= last; i++) {
             //Вычисляем новый идентификатор
-            let newId = id + i;
+            let newId = index + i;
 
             //Если идентификатор отрицательный, то "вычитание" из количества элементов полученного числа
             if (newId <= 0) newId = count + newId;
@@ -65,7 +68,7 @@ export default function Collection({ collection, maxElement }) {
             if (newId > count) newId = newId - count;
 
             //Добавление нового идентфиикатора в коллекцию
-            newIds.push(newId);
+            newIds.push(collection[newId - 1]?.id);
         }
 
         //Возврат результата
@@ -78,7 +81,7 @@ export default function Collection({ collection, maxElement }) {
         let item = collection.find(item => item.id === id);
 
         //Возврат текста
-        return item.description;
+        return item?.description;
     }
 
     //Получение отображаемого списка
@@ -88,7 +91,7 @@ export default function Collection({ collection, maxElement }) {
         <div className="information__block">
             <div className="collection__items">
                 {visible.map((item) => {
-                    return <CollectionItem key={item.id} active={item.id === activeId} {...item} click={() => Click(item.id)} />
+                    return <CollectionItem key={item?.id} active={item?.id === activeId} {...item} click={() => Click(item?.id)} />
                 })}
             </div>
             <span className="information__text">{text}</span>

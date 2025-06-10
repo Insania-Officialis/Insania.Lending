@@ -16,7 +16,7 @@ import orc from '/images/orc.png'
 import troll from '/images/troll.png'
 import vampire from '/images/vampire.png'
 
-export const races = [
+export const racesList = [
     {
         id: 1,
         name: 'ЛЮДИ',

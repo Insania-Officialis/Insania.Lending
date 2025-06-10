@@ -33,3 +33,9 @@ async function getFilesListByEntityId(entityId) {
         console.error('Ошибка:', error);
     }
 }
+
+//Экспорт всех методов API
+export const filesApi = {
+    baseUrl,
+    getFilesListByEntityId
+};
