@@ -13,7 +13,7 @@ export default function Collection({ collection, maxElement }) {
     const [ids, setIds] = useState(GetIds(1));
 
     //Добавление состояния отслеживания текста
-    const [text, setText] = useState(GetText(1));
+    const [text, setText] = useState(GetText(collection[0]?.id));
 
     //Отображаемый список
     let visible = [];
@@ -51,7 +51,7 @@ export default function Collection({ collection, maxElement }) {
         let newIds = [];
 
         //Получение "крайнего значения"
-        let last = Math.floor(maxElement / 2);
+        let last = Math.floor((maxElement < collection.length ? maxElement : collection.length) / 2);
 
         //Получение индекса по идентификатору
         let index = collection.findIndex(x => x.id === id) + 1;
@@ -91,7 +91,7 @@ export default function Collection({ collection, maxElement }) {
         <div className="information__block">
             <div className="collection__items">
                 {visible.map((item) => {
-                    return <CollectionItem key={item?.id} active={item?.id === activeId} {...item} click={() => Click(item?.id)} />
+                    return <CollectionItem key={crypto.randomUUID()} id={item?.id} active={item?.id === activeId} {...item} click={() => Click(item?.id)} />
                 })}
             </div>
             <span className="information__text">{text}</span>

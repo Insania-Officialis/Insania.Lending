@@ -1,14 +1,15 @@
 ﻿//Объявление переменной ссылки на api работы с файлами
 const baseUrl = 'http://192.168.31.234:8082/';
 
-//Функция получения файлов по идентификтору сущности
-async function getFilesListByEntityId(entityId) {
+//Функция получения файлов по идентификтору сущности и идентификатору типа
+async function getFilesListByEntityId(entityId, typeId) {
     try {
         //Формирование строки запроса
         const url = new URL(baseUrl + 'files/list');
 
         //Добавление query-параметров
         url.searchParams.append('entity_id', entityId);
+        url.searchParams.append('type_id', typeId);
 
         //Отправка запроса
         const response = await fetch(url, {
