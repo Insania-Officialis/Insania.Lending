@@ -1,0 +1,29 @@
+﻿@use "../base/colors";
+
+/*Блок колеса загрузки*/
+.spinner__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/*Элемент колеса загрузки*/
+.spinner__element {
+    width: 5rem;
+    height: 5rem;
+    border: 0.5rem solid $background__body--primary;
+    border-top: 0.5rem solid $color__text--primary;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+//Анимация spin
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

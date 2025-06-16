@@ -1,5 +1,5 @@
 ﻿//Объявление переменной ссылки на api работы с биологией
-const baseUrl = 'http://192.168.31.234:8081/';
+const baseUrl = 'http://192.168.31.234:7081/';
 
 //Функция получения списка рас
 export async function getRacesList() {

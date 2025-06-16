@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197
+VisualStudioVersion = 17.14.36203.30 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Insania.Lending", "Insania.Lending.esproj", "{24499CCB-0505-9E5C-76CB-CBC35229D8A6}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "insania.lending", "insania.lending.esproj", "{24499CCB-0505-9E5C-76CB-CBC35229D8A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +22,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D7AC0A7F-294C-4C1D-BA22-31A481B2B569}
+		SolutionGuid = {7114D8D1-6071-470B-A283-6D7D04C300A1}
 	EndGlobalSection
 EndGlobal
