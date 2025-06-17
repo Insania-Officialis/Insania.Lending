@@ -1,0 +1,72 @@
+﻿/*Блок меню*/
+.menu__block {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 1rem;
+    width: 75%;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    background-color: $color__background--secondary;
+    color: $color__text--primary;
+    font-size: 1.5rem;
+}
+
+/*Блок логотипа меню*/
+.menu-logo__block {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/*Изображение логотипа меню*/
+.menu-logo__image {
+    height: 3rem;
+}
+
+/*Текст логотипа меню*/
+.menu-logo__text {
+    font-family: 'Ofont ru Optimus';
+    cursor: default;
+}
+
+/*Блок навигации меню*/
+.menu-navigation__block {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/*Элемент навигации меню*/
+.menu-navigation__item {
+    color: $color__text--primary;
+
+    &.main-menu__item--active {
+        border-bottom-color: $color__background--primary;
+        border-bottom-width: 0.1rem;
+        border-bottom-style: solid;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+/*Блок действий меню*/
+.menu-action__block {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/*Кнопка действий меню*/
+.menu-action__button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    background-color: $color__background-button--primary;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

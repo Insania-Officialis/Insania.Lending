@@ -12,7 +12,7 @@
 .spinner__element {
     width: 5rem;
     height: 5rem;
-    border: 0.5rem solid $background__body--primary;
+    border: 0.5rem solid $color__background--primary;
     border-top: 0.5rem solid $color__text--primary;
     border-radius: 50%;
     animation: spin 1s linear infinite;

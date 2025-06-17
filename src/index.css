@@ -3,6 +3,8 @@
 /*Страница*/
 html {
   height: 100%;
+  font-family: Georgia;
+  font-size: 10px;
   scroll-behavior: smooth;
 }
 
@@ -11,8 +13,6 @@ body {
   height: 100%;
   background-color: hsl(0, 0%, 10%);
   color: hsl(0, 0%, 75%);
-  font-family: Georgia;
-  font-size: 18px;
 }
 
 /*Поля ввода*/
@@ -69,26 +69,108 @@ a {
     transform: rotate(360deg);
   }
 }
+/*Блок меню*/
+.menu__block {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 1rem;
+  width: 75%;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  background-color: hsl(0, 0%, 20%);
+  color: hsl(0, 0%, 75%);
+  font-size: 1.5rem;
+}
+
+/*Блок логотипа меню*/
+.menu-logo__block {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/*Изображение логотипа меню*/
+.menu-logo__image {
+  height: 3rem;
+}
+
+/*Текст логотипа меню*/
+.menu-logo__text {
+  font-family: "Ofont ru Optimus";
+  cursor: default;
+}
+
+/*Блок навигации меню*/
+.menu-navigation__block {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/*Элемент навигации меню*/
+.menu-navigation__item {
+  color: hsl(0, 0%, 75%);
+}
+.menu-navigation__item.main-menu__item--active {
+  border-bottom-color: hsl(0, 0%, 10%);
+  border-bottom-width: 0.1rem;
+  border-bottom-style: solid;
+}
+.menu-navigation__item:hover {
+  cursor: pointer;
+}
+
+/*Блок действий меню*/
+.menu-action__block {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/*Кнопка действий меню*/
+.menu-action__button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+  background-color: hsl(359, 100%, 33%);
+}
+.menu-action__button:hover {
+  cursor: pointer;
+}
+
+/*Блок информации о проекте*/
+.about-the-project__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  text-align: center;
+  height: 90%;
+  width: 100%;
+  clip-path: ellipse(100% 100% at 50% 0%);
+  overflow: hidden;
+}
+
+/*Заголовок информации о проекте*/
+.about-the-project__title {
+  font-family: "Ofont ru Optimus";
+  font-size: 5rem;
+}
+
 /*Страницы*/
 /*Блок основной части*/
 .main__block {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
-  padding: 1rem;
+  height: 100%;
 }
 
-/*Блок меню*/
-.menu__block {
-  position: sticky;
-  display: flex;
-  justify-content: space-between;
-  top: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  border-radius: 0.5rem;
-  background-color: hsl(0, 0%, 75%);
-  color: hsl(0, 0%, 10%);
+/*Текст основной части*/
+.main__text {
+  width: 50%;
+  font-size: 3rem;
 }

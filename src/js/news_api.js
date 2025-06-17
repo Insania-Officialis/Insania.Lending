@@ -1,15 +1,11 @@
-﻿//Объявление переменной ссылки на api работы с файлами
-const baseUrl = 'http://192.168.31.234:7082/';
+﻿//Объявление переменной ссылки на api работы с новостями
+const baseUrl = 'http://192.168.31.234:7085/';
 
-//Функция получения файлов по идентификтору сущности и идентификатору типа
-async function getFilesListByEntityIdAndTypeId(entityId, typeId) {
+//Функция получения новостей
+async function getNewsList() {
     try {
         //Формирование строки запроса
-        const url = new URL(baseUrl + 'files/list');
-
-        //Добавление query-параметров
-        url.searchParams.append('entity_id', entityId);
-        url.searchParams.append('type_id', typeId);
+        const url = new URL(baseUrl + 'news/list');
 
         //Отправка запроса
         const response = await fetch(url, {
@@ -36,7 +32,7 @@ async function getFilesListByEntityIdAndTypeId(entityId, typeId) {
 }
 
 //Экспорт всех методов API
-export const filesApi = {
+export const newsApi = {
     baseUrl,
-    getFilesListByEntityIdAndTypeId
+    getNewsList
 };

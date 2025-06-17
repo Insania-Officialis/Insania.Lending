@@ -3,16 +3,16 @@
 /*Страница*/
 html {
     height: 100%;
+    font-family: Georgia;
+    font-size: 10px;
     scroll-behavior: smooth;
 }
 
 /*Тело страницы*/
 body {
     height: 100%;
-    background-color: $background__body--primary;
+    background-color: $color__background--primary;
     color: $color__text--primary;
-    font-family: Georgia;
-    font-size: 18px;
 }
 
 /*Поля ввода*/
@@ -29,5 +29,5 @@ a {
 /*Основной блок*/
 .base-block__div {
     height: 100%;
-    background-color: $background__body--primary;
+    background-color: $color__background--primary;
 }
