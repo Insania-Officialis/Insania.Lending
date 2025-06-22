@@ -7,6 +7,7 @@ import { politicsApi } from '../../js/politics_api.js';
 import { sociologyApi } from '../../js/sociology_api.js';
 
 import AboutTheProject from '../about_the_project/about_the_project.jsx';
+import AboutTheRaces from '../about_the_races/about_the_races.jsx';
 import Menu from '../menu/menu.jsx';
 import Spinner from '../spinner/spinner.jsx';
 
@@ -134,7 +135,10 @@ export default function Data() {
                 //Проверка данных
                 if (!nationsData?.items?.length || !nationsData?.success) throw new Error("Не получены нации или список пуст");
                 //Возврат результата
-                return nationsData.items;
+                return nationsData.items.map((nation) => ({
+                    ...nation,
+                    raceId: race.id
+                })) || [];
             },
             //Время кэширования в милисекундах
             staleTime: 24 * 60 * 60 * 1000,
@@ -288,6 +292,7 @@ export default function Data() {
         <div className="main__block">
             <Menu logo={logo} />
             <AboutTheProject image={about_project} />
+            <AboutTheRaces races={racesWithImages} nations={nationsWithImages} />
         </div>
     )
 }

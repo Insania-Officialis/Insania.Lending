@@ -72,7 +72,7 @@ a {
 /*Блок меню*/
 .menu__block {
   z-index: 1;
-  position: absolute;
+  position: sticky;
   display: flex;
   justify-content: space-between;
   top: 1rem;
@@ -147,7 +147,7 @@ a {
   justify-content: center;
   gap: 3rem;
   text-align: center;
-  height: 90%;
+  height: 90vh;
   width: 100%;
   clip-path: ellipse(100% 100% at 50% 0%);
   overflow: hidden;
@@ -159,6 +159,140 @@ a {
   font-size: 5rem;
 }
 
+/*Блок информации о расе*/
+.about-the-races__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+  height: 90vh;
+  width: 75%;
+  font-size: 2rem;
+}
+
+/*Блок расы в информации о расе*/
+.about-the-races__race-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10rem;
+  text-align: center;
+  width: 100%;
+}
+
+/*Блок элемента коллекции в информации о расе*/
+.about-the-races__collection-item-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/*Изображение расы в информации о расе*/
+.about-the-races__race-item-image {
+  width: 10rem;
+  border-radius: 20rem;
+  opacity: 0.5;
+}
+.about-the-races__race-item-image.about-the-races__race-item-image--active {
+  width: 15rem;
+  opacity: 1;
+}
+
+/*Блок детальной части расы в информации о расе*/
+.about-the-races__race-detail-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+/*Блок текста расы в информации о расе*/
+.about-the-races__race-text-block {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 20.5rem;
+  width: 50rem;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+/*Внутрений блок текста расы в информации о расе*/
+.about-the-races__race-text-block-inner {
+  z-index: -1;
+  position: absolute;
+  margin-top: 2.4rem;
+  margin-left: 0.3rem;
+  height: 20rem;
+  width: 49.7rem;
+  border-radius: 2rem;
+  background-color: hsl(0, 0%, 20%);
+  transform: skewY(-6deg) skewX(-6deg);
+  transform-origin: top;
+}
+
+/*Текст расы в информации о расе*/
+.about-the-races__race-text {
+  display: flex;
+  flex-grow: 1;
+  padding: 5rem 2rem 1.5rem 0;
+  text-align: right;
+  font-size: 1.5rem;
+}
+
+/*Блок нации в информации о расе*/
+.about-the-races__nation-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/*Изображение нации в информации о расе*/
+.about-the-races__nation-item-image {
+  width: 10rem;
+  border-radius: 20rem;
+  opacity: 0.5;
+}
+.about-the-races__nation-item-image.about-the-races__nation-item-image--active {
+  opacity: 1;
+}
+
+/*Блок текста нации в информации о расе*/
+.about-the-races__nation-text-block {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5rem;
+  height: 30.7rem;
+  width: 50rem;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+/*Внутрений блок текста нации в информации о расе*/
+.about-the-races__nation-text-block-inner {
+  z-index: -1;
+  position: absolute;
+  margin-top: 2.9rem;
+  height: 30rem;
+  width: 49.7rem;
+  border-radius: 2rem;
+  background-color: hsl(0, 0%, 20%);
+  transform: skewY(7deg) skewX(7deg);
+  transform-origin: top;
+}
+
+/*Текст нации в информации о расе*/
+.about-the-races__nation-text {
+  display: flex;
+  flex-grow: 1;
+  padding: 6rem 0 1.5rem 4rem;
+  font-size: 1.5rem;
+}
+
 /*Страницы*/
 /*Блок основной части*/
 .main__block {
@@ -166,7 +300,6 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  height: 100%;
 }
 
 /*Текст основной части*/
