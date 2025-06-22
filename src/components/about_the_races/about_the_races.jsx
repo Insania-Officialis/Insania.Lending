@@ -4,8 +4,8 @@ export default function AboutTheRaces({ races, nations }) {
     const visibleCountRace = 7; //Количество отображаемых элементов рас
     const visibleCountNation = 3; //Количество отображаемых элементов наций
     const centerRace = Math.floor(visibleCountRace / 2); //центральный элемент расы
-    const [activeRace, setActiveRace] = useState(races[2]?.id || 1); //идентификатор активной расы
-    const [activeNation, setActiveNation] = useState(null); //идентификатор активной нации
+    const [activeRace, setActiveRace] = useState(races[0]?.id || 1); //идентификатор активной расы
+    const [activeNation, setActiveNation] = useState(nations?.find(x => x.raceId === (races[0]?.id || 1))?.id); //идентификатор активной нации
 
     //Метод получения видимых рас
     const getVisibleRaces = function (id) {
@@ -77,8 +77,6 @@ export default function AboutTheRaces({ races, nations }) {
     //Коллекция видимых элементов
     const visibleRaces = getVisibleRaces(activeRace);
     const visibleNations = getVisibleNations(activeNation);
-    console.log(activeNation);
-    console.log(nations);
 
     //Вывод основного содержимого
     return (
@@ -100,9 +98,9 @@ export default function AboutTheRaces({ races, nations }) {
             <div className='about-the-races__race-detail-block'>
                 <div className='about-the-races__race-text-block'>
                     <div className='about-the-races__race-text'>
-                        <span style={{ flexGrow: '1' }}>
+                        <span style={{ flexGrow: '1', overflow: 'hidden' }}>
                             {races?.find(x => x.id === activeRace)?.description}
-                            {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.*/}
+                            {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit*/}
                         </span>
                     </div>
                     <div className='about-the-races__race-text-block-inner'/>
@@ -120,14 +118,17 @@ export default function AboutTheRaces({ races, nations }) {
                         </div>
                     ))}
                 </div>
-                <div className='about-the-races__nation-text-block'>
-                    <div className='about-the-races__nation-text'>
-                        <span style={{ flexGrow: '1' }}>
-                            {nations?.find(x => x.id === activeNation)?.description}
-                            {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.*/}
-                        </span>
+                <div style={{ position: 'relative', display: 'flex' }}>
+                    <div className='about-the-races__nation-text-block'>
+                        <div className='about-the-races__nation-text'>
+                            <span style={{ flexGrow: '1', overflow: 'hidden' }}>
+                                {nations?.find(x => x.id === activeNation)?.description}
+                                {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
+                            </span>
+                        </div>
+                        <div className='about-the-races__nation-text-block-inner'/>
                     </div>
-                    <div className='about-the-races__nation-text-block-inner'/>
+                    <img className='about-the-races__nation-image' alt={nations?.find(x => x.id === activeNation)?.name} src={nations?.find(x => x.id === activeNation)?.image} />
                 </div>
             </div>
         </div>

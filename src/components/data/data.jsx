@@ -76,7 +76,7 @@ export default function Data() {
         },
         {
             //Ключ кэша
-            queryKey: ['logo_image'],
+            queryKey: ['logo'],
             //Запрос кэша
             queryFn: async () => {
                 //Получение изображений
@@ -91,7 +91,7 @@ export default function Data() {
         },
         {
             //Ключ кэша
-            queryKey: ['start_image'],
+            queryKey: ['start'],
             //Запрос кэша
             queryFn: async () => {
                 //Получение изображений

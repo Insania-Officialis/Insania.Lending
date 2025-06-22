@@ -164,7 +164,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
   padding: 0 2rem;
   height: 90vh;
   width: 75%;
@@ -207,6 +207,7 @@ a {
   flex-direction: row;
   justify-content: space-between;
   gap: 5rem;
+  width: 100%;
 }
 
 /*Блок текста расы в информации о расе*/
@@ -214,7 +215,7 @@ a {
   position: relative;
   display: flex;
   flex-direction: row;
-  height: 20.5rem;
+  height: 20.3rem;
   width: 50rem;
   border-radius: 2rem;
   overflow: hidden;
@@ -238,7 +239,7 @@ a {
 .about-the-races__race-text {
   display: flex;
   flex-grow: 1;
-  padding: 5rem 2rem 1.5rem 0;
+  padding: 6rem 4rem 1.5rem 4rem;
   text-align: right;
   font-size: 1.5rem;
 }
@@ -247,7 +248,7 @@ a {
 .about-the-races__nation-block {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 /*Изображение нации в информации о расе*/
@@ -265,7 +266,7 @@ a {
   position: relative;
   display: flex;
   flex-direction: row;
-  margin-top: 5rem;
+  margin-top: 7rem;
   height: 30.7rem;
   width: 50rem;
   border-radius: 2rem;
@@ -289,8 +290,16 @@ a {
 .about-the-races__nation-text {
   display: flex;
   flex-grow: 1;
-  padding: 6rem 0 1.5rem 4rem;
+  padding: 8rem 4rem 1.5rem 6rem;
   font-size: 1.5rem;
+}
+
+/*Изображение нации в информации о расе*/
+.about-the-races__nation-image {
+  position: absolute;
+  right: 2rem;
+  width: 15rem;
+  border-radius: 20rem;
 }
 
 /*Страницы*/
