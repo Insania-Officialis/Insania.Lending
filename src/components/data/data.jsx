@@ -1,4 +1,5 @@
-﻿import { useQueries } from 'react-query';
+﻿import { useEffect, useRef, useState } from 'react';
+import { useQueries } from 'react-query';
 
 import { biologyApi } from '../../js/biology_api.js';
 import { filesApi } from '../../js/files_api.js';
@@ -22,7 +23,7 @@ export default function Data() {
                 //Получение рас
                 const racesData = await biologyApi.getRacesList();
                 //Проверка данных
-                if (!racesData?.items?.length || !racesData?.success) throw new Error("Не получены расы или список пуст");
+                if (!racesData?.items?.length || !racesData?.success) throw new Error('Не получены расы или список пуст');
                 //Возврат результата
                 return racesData.items;
             },
@@ -37,7 +38,7 @@ export default function Data() {
                 //Получение стран
                 const countriesData = await politicsApi.getCountriesList();
                 //Проверка данных
-                if (!countriesData?.items?.length || !countriesData?.success) throw new Error("Не получены страны или список пуст");
+                if (!countriesData?.items?.length || !countriesData?.success) throw new Error('Не получены страны или список пуст');
                 //Возврат результата
                 return countriesData.items;
             },
@@ -52,7 +53,7 @@ export default function Data() {
                 //Получение фракций
                 const factionsData = await sociologyApi.getFactionsList();
                 //Проверка данных
-                if (!factionsData?.items?.length || !factionsData?.success) throw new Error("Не получены фракции или список пуст");
+                if (!factionsData?.items?.length || !factionsData?.success) throw new Error('Не получены фракции или список пуст');
                 //Возврат результата
                 return factionsData.items;
             },
@@ -67,7 +68,7 @@ export default function Data() {
                 //Получение фракций
                 const newsData = await newsApi.getNewsList();
                 //Проверка данных
-                if (!newsData?.items?.length || !newsData?.success) throw new Error("Не получены нации или список пуст");
+                if (!newsData?.items?.length || !newsData?.success) throw new Error('Не получены нации или список пуст');
                 //Возврат результата
                 return newsData.items;
             },
@@ -82,7 +83,7 @@ export default function Data() {
                 //Получение изображений
                 const images = await filesApi.getFilesListByEntityIdAndTypeId(1, 6);
                 //Проверка данных
-                if (!images?.items?.length || !images?.success) throw new Error("Не получено лого или список пуст");
+                if (!images?.items?.length || !images?.success) throw new Error('Не получено лого или список пуст');
                 //Возврат результата
                 return images?.items?.[images?.items?.length - 1] || null;
             },
@@ -97,7 +98,7 @@ export default function Data() {
                 //Получение изображений
                 const images = await filesApi.getFilesListByEntityIdAndTypeId(2, 6);
                 //Проверка данных
-                if (!images?.items?.length || !images?.success) throw new Error("Не получено стартовое изображение или список пуст");
+                if (!images?.items?.length || !images?.success) throw new Error('Не получено стартовое изображение или список пуст');
                 //Возврат результата
                 return images?.items?.[images?.items?.length - 1] || null;
             },
@@ -133,7 +134,7 @@ export default function Data() {
                 //Получение наций
                 const nationsData = await biologyApi.getNationsList(race.id);
                 //Проверка данных
-                if (!nationsData?.items?.length || !nationsData?.success) throw new Error("Не получены нации или список пуст");
+                if (!nationsData?.items?.length || !nationsData?.success) throw new Error('Не получены нации или список пуст');
                 //Возврат результата
                 return nationsData.items.map((nation) => ({
                     ...nation,
@@ -247,12 +248,6 @@ export default function Data() {
         queriesSecond.some(query => query.isError) ||
         queriesThird.some(query => query.isError);
 
-    //Отображение колеса загрузки при установленном признаке
-    if (isLoading) return <Spinner />;
-
-    //Отображение ошибки при установленном признаке
-    if (isError) return <div>Ошибка загрузки данных</div>;
-
     //Формирование коллекций данных с изображениями
     const racesWithImages = queriesFirst[0]?.data?.map((race, index) => ({
         ...race,
@@ -287,12 +282,61 @@ export default function Data() {
     const logo = `${filesApi.baseUrl}files/by_id?id=${queriesFirst[4]?.data?.id}`;
     const about_project = `${filesApi.baseUrl}files/by_id?id=${queriesFirst[5]?.data?.id}`;
 
+    //Добавление состояния готовности изображений
+    const [isReady, setIsReady] = useState(false);
+
+    //Добавление ссылки
+    const contentRef = useRef();
+
+    //Добавление проверки готовности элементов
+    useEffect(() => {
+        const checkRender = () => {
+            //Проверяем, что ссылка содержит DOM-элемент
+            if (contentRef.current) {
+                //Поиск всех изображений в контейнере с ссылкой
+                const images = contentRef.current.querySelectorAll('img');
+
+                //Проверка загрузки изображений
+                const allLoaded = Array.from(images).every(img => img.complete);
+
+                //Обновление готовности при загрухзке
+                if (allLoaded) setIsReady(true);
+            }
+        };
+
+        //Первоначальная проверка
+        checkRender();
+
+        //Интервал периодической проверки
+        const timer = setInterval(checkRender, 100);
+
+        //Удаление интервала при завершении
+        return () => clearInterval(timer);
+    }, []);
+
+    //Отображение колеса загрузки при установленном признаке
+    if (isLoading) return <Spinner />;
+
+    //Отображение ошибки при установленном признаке
+    if (isError) return <div>Ошибка загрузки данных</div>;
+
     //Вывод основного содержимого
     return (
-        <div className="main__block">
-            <Menu logo={logo} />
-            <AboutTheProject image={about_project} />
-            <AboutTheRaces races={racesWithImages} nations={nationsWithImages} />
-        </div>
+        <>
+            <div className='main__block' style={{ display: isReady ? 'flex' : 'none' }}>
+                <Menu logo={logo} />
+                <AboutTheProject image={about_project} />
+                <AboutTheRaces races={racesWithImages} nations={nationsWithImages} />
+                <div ref={contentRef} style={{ display: 'none' }}>
+                    {racesWithImages.map(race => (
+                        <img key={race.id} alt={race.name} src={race.image} />
+                    ))}
+                    {nationsWithImages.map(nation => (
+                        <img key={nation.id} alt={nation.name} src={nation.image} />
+                    ))}
+                </div>
+            </div>
+            {!isReady && <Spinner />}
+        </>
     )
 }
