@@ -14,13 +14,13 @@ RUN npm ci
 COPY Insania.Lending/ ./
 
 #Сборка приложения
-RUN npm run build && ls -la /app/Insania.Lending/
+RUN npm run build && ls -la /app/
 
 #Использование образа для финальных действий
 FROM nginx:bookworm
 
 #Копирование собранных файлов из builder-стадии
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 #Проброс порта
 EXPOSE 80
