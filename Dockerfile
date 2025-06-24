@@ -2,16 +2,16 @@
 FROM node:20-bookworm as builder
 
 #Задание рабочего каталога
-WORKDIR /app/Insania.Lending
+WORKDIR /app
 
 #Копирование пакетов
-COPY package*.json ./
+COPY Insania.Lending/package*.json ./
 
 #Установка зависимостей
 RUN npm ci
 
 #Копирование файлов проекта
-COPY . .
+COPY Insania.Lending/ ./
 
 #Сборка приложения
 RUN npm run build
