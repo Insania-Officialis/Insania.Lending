@@ -20,7 +20,7 @@ RUN npm run build
 FROM nginx:bookworm
 
 #Копирование собранных файлов из builder-стадии
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/Insania.Lending/build /usr/share/nginx/html
 
 #Проброс порта
 EXPOSE 80
