@@ -2,7 +2,7 @@
 FROM node:20-bookworm as builder
 
 #Задание рабочего каталога
-WORKDIR /app/Insana.Lending
+WORKDIR /app/Insania.Lending
 
 #Копирование пакетов
 COPY package*.json ./
