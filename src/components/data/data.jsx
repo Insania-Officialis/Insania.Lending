@@ -7,6 +7,7 @@ import { newsApi } from '../../js/news_api.js';
 import { politicsApi } from '../../js/politics_api.js';
 import { sociologyApi } from '../../js/sociology_api.js';
 
+import AboutTheCountries from '../about_the_countries/about_the_countries.jsx';
 import AboutTheProject from '../about_the_project/about_the_project.jsx';
 import AboutTheRaces from '../about_the_races/about_the_races.jsx';
 import Menu from '../menu/menu.jsx';
@@ -335,6 +336,7 @@ export default function Data() {
                         <img key={nation.id} alt={nation.name} src={nation.image} />
                     ))}
                 </div>
+                <AboutTheCountries />
             </div>
             {!isReady && <Spinner />}
         </>
