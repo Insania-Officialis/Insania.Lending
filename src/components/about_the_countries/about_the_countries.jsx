@@ -1,36 +1,82 @@
-﻿import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
+﻿import { useEffect } from 'react';
 
 import mapImage from '../../../public/images/map/map.png';
 
 export default function AboutTheCountries() {
-    ////Создание слоя карты
-    //const layer = () => new window.ymaps.Layer(mapImage, { notFoundTile: mapImage });
+    useEffect(() => {
+        //Запуск инициализации карты, при её готовности
+        ymaps.ready(init);
 
-    ////Добавление слоя в коллекцию
-    //window.ymaps.layer.storage.add('my#layer', layer);
+        //Функция инициализации карты
+        function init() {
+            //Создание собственного слоя
+            const layer = function () { return new ymaps.Layer(function () { return mapImage }) }
 
-    ////Добавление типа карты
-    //window.ymaps.mapType.storage.add('my#type', new window.ymaps.MapType('Custom Map', ['my#layer'], {}));
+            //Добавление слоя в коллекцию слоёв карты
+            ymaps.layer.storage.add('my#layer', layer);
+
+            //Добавление нового типа на основании слоя в коллекцию типов карты
+            ymaps.mapType.storage.add('my#type', new ymaps.MapType(
+                'Пусто',
+                ['my#layer']
+            ));
+
+            //Создание карты
+            const map = new ymaps.Map("map", {
+                type: 'my#type', //тип карты
+                center: [0, 0], //центр позиционирования
+                zoom: 2, //коэффициент масштабирования
+                controls: [], //элементы управления
+            }, {
+                //restrictMapArea: true, //ограничение области карты видимой областью
+                restrictMapArea: [[-85, -180], [85, 179]], //ограничение области карты прямоугольной областью
+                minZoom: 2, //минимальный масштаб
+                suppressMapOpenBlock: true, //кнопка "Открыть в Яндекс картах"
+            });
+
+            //Ограничение пользовательского передвижения карты
+            map.action.setCorrection(function (tick) {
+                //Получение проекции
+                var projection = map.options.get('projection');
+
+                //Получение размера картыв
+                var mapSize = map.container.getSize();
+
+                //Получение центра
+                var tickCenter = projection.fromGlobalPixels(tick.globalPixelCenter, tick.zoom);
+
+                //Получение границ
+                var top = [tick.globalPixelCenter[0], tick.globalPixelCenter[1] - mapSize[1] / 2];
+                var bot = [tick.globalPixelCenter[0], tick.globalPixelCenter[1] + mapSize[1] / 2];
+                var tickTop = projection.fromGlobalPixels(top, tick.zoom);
+                var tickBot = projection.fromGlobalPixels(bot, tick.zoom);
+
+                //Проверка пересечения границы по горизонтали
+                if (tickTop[0] > 85) {
+                    //Передвижение пользователя
+                    tick.globalPixelCenter = projection.toGlobalPixels([85, tickCenter[1]], tick.zoom);
+                    tick.globalPixelCenter = [tick.globalPixelCenter[0], tick.globalPixelCenter[1] + mapSize[1] / 2];
+                    tick.duration = 0;
+                }
+
+                //Проверка пересечения по горизонтали
+                if (tickBot[0] < -85) {
+                    //Передвижение пользователя
+                    tick.globalPixelCenter = projection.toGlobalPixels([-85, tickCenter[1]], tick.zoom);
+                    tick.globalPixelCenter = [tick.globalPixelCenter[0], tick.globalPixelCenter[1] - mapSize[1] / 2];
+                    tick.duration = 0;
+                }
+
+                //Возврат положения
+                return tick;
+            });
+        }
+    }, []);
 
     //Вывод основного содержимого
     return (
         <div className="about-the-countries__block">
-            <YMaps query={{ apikey: '2c0658bf-8a66-4ffa-ad14-b1df5b5311ca' }}>
-                <Map className="about-the-countries__map-block"
-                    defaultState={{
-                        //type: 'my#type', //тип карты
-                        center: [0, 0], //центр позиционирования
-                        zoom: 2, //коэффициент масштабирования
-                        controls: [] //элементы управления
-                    }}
-                    options={{
-                        //restrictMapArea: true, //ограничение области карты видимой областью
-                        restrictMapArea: [[-85, -180], [85, 179]], //ограничение области карты прямоугольной областью
-                        minZoom: 2, //минимальный масштаб
-                        suppressMapOpenBlock: true //кнопка "Открыть в Яндекс картах"
-                    }}
-                />
-            </YMaps>
+            <div id="map" className="about-the-countries__map-block"></div>
         </div>
     )
 }
