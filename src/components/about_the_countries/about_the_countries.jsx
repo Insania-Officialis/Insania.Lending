@@ -2,13 +2,14 @@
 
 import mapImage from '../../../public/images/map/map.png';
 
-export default function AboutTheCountries() {
+export default function AboutTheCountries({ coordinates }) {
+    console.log(coordinates);
     useEffect(() => {
         //Запуск инициализации карты, при её готовности
         ymaps.ready(init);
 
         //Функция инициализации карты
-        function init() {
+        async function init() {
             //Создание собственного слоя
             const layer = function () { return new ymaps.Layer(function () { return mapImage }) }
 

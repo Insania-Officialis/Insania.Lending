@@ -3,6 +3,7 @@ import { useQueries } from 'react-query';
 
 import { biologyApi } from '../../js/biology_api.js';
 import { filesApi } from '../../js/files_api.js';
+import { geographyApi } from '../../js/geography_api.js';
 import { newsApi } from '../../js/news_api.js';
 import { politicsApi } from '../../js/politics_api.js';
 import { sociologyApi } from '../../js/sociology_api.js';
@@ -105,6 +106,21 @@ export default function Data() {
             },
             //Время кэширования в милисекундах
             staleTime: 24 * 60 * 60 * 1000
+        },
+        {
+            //Ключ кэша
+            queryKey: ['geography_objects'],
+            //Запрос кэша
+            queryFn: async () => {
+                //Получение изображений
+                const geographyObjects = await geographyApi.getGeographyObjectsList(true, [4]);
+                //Проверка данных
+                if (!geographyObjects?.items?.length || !geographyObjects?.success) throw new Error('Не получены географические объекты или список пуст');
+                //Возврат результата
+                return geographyObjects.items;
+            },
+            //Время кэширования в милисекундах
+            staleTime: 24 * 60 * 60 * 1000
         }
     ]);
 
@@ -193,7 +209,25 @@ export default function Data() {
             //Время кэширования в милисекундах
             staleTime: 24 * 60 * 60 * 1000,
             //Добавление зависимостей
-            enabled: !!queriesFirst[2]?.data
+            enabled: !!queriesFirst[3]?.data
+        })),
+        //Проход по коллекции географических объектов
+        ...(queriesFirst[6]?.data || []).map(geographyObject => ({
+            //Ключ кэша
+            queryKey: ['geography_objects_coordinates', geographyObject.id],
+            //Запрос кэша
+            queryFn: async () => {
+                //Получение изображений
+                const coordinates = await geographyApi.getGeographyObjectsCoordinatesList(geographyObject.id);
+                //Проверка данных
+                if (!coordinates?.items?.length || !coordinates?.success) throw new Error('Не получены координаты географического объекта или список пуст');
+                //Возврат результата
+                return coordinates || {};
+            },
+            //Время кэширования в милисекундах
+            staleTime: 24 * 60 * 60 * 1000,
+            //Добавление зависимостей
+            enabled: !!queriesFirst[6]?.data
         }))
     ]);
     
@@ -202,6 +236,7 @@ export default function Data() {
     const countriesCount = queriesFirst[1]?.data?.length || 0;
     const factionsCount = queriesFirst[2]?.data?.length || 0;
     const newsCount = queriesFirst[3]?.data?.length || 0;
+    const geographyObjectCount = queriesFirst[6]?.data?.length || 0;
 
     //Получение запросов 2 уровня
     const racesImagesQueries = queriesSecond.slice(0, racesCount);
@@ -209,6 +244,7 @@ export default function Data() {
     const countriesImagesQueries = queriesSecond.slice(racesCount + racesCount, racesCount + racesCount + countriesCount);
     const factionsImagesQueries = queriesSecond.slice(racesCount + racesCount + countriesCount, racesCount + racesCount + countriesCount + factionsCount);
     const newsImagesQueries = queriesSecond.slice(racesCount + racesCount + countriesCount + factionsCount, racesCount + racesCount + countriesCount + factionsCount + newsCount);
+    const geographyObjectsCoordinatesQueries = queriesSecond.slice(racesCount + racesCount + countriesCount + factionsCount + newsCount, racesCount + racesCount + countriesCount + factionsCount + newsCount + geographyObjectCount);
 
     //Получение наций
     const nationsData = nationsQueries.map(query => query.data).filter(Boolean).flat();
@@ -336,7 +372,7 @@ export default function Data() {
                         <img key={nation.id} alt={nation.name} src={nation.image} />
                     ))}
                 </div>
-                <AboutTheCountries />
+                <AboutTheCountries coordinates={geographyObjectsCoordinatesQueries?.map(query => query.data).filter(Boolean).flat()} />
             </div>
             {!isReady && <Spinner />}
         </>
