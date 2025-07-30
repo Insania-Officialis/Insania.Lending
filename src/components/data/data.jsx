@@ -113,7 +113,7 @@ export default function Data() {
             //Запрос кэша
             queryFn: async () => {
                 //Получение изображений
-                const geographyObjects = await geographyApi.getGeographyObjectsList(true, [4]);
+                const geographyObjects = await geographyApi.getGeographyObjectsList(true, [7]);
                 //Проверка данных
                 if (!geographyObjects?.items?.length || !geographyObjects?.success) throw new Error('Не получены географические объекты или список пуст');
                 //Возврат результата
