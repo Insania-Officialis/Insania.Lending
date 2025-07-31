@@ -3,7 +3,6 @@
 import mapImage from '../../../public/images/map/map.png';
 
 export default function AboutTheCountries({ coordinates }) {
-    console.log(coordinates);
     useEffect(() => {
         //Запуск инициализации карты, при её готовности
         ymaps.ready(init);
@@ -71,6 +70,62 @@ export default function AboutTheCountries({ coordinates }) {
                 //Возврат положения
                 return tick;
             });
+
+            //Отрисовка полигонов
+            try {
+                //Проверки
+                if (!coordinates?.length) throw new Error('Не указан массив координат географических объектов');
+
+                //Проход по массиву координат географических объектов
+                for (const geographyObjectCoordinates of coordinates) {
+                    try {
+                        //Проверки
+                        if (!geographyObjectCoordinates?.items?.length) throw new Error('Не указаны координаты географического объекта');
+
+                        //Проход по массиву координат географического объекта
+                        for (const geographyObjectCoordinate of geographyObjectCoordinates.items) {
+                            //Проверки
+                            if (!geographyObjectCoordinate?.coordinates?.length) throw new Error('Не указана координата географического объекта');
+
+                            //Создание полигона
+                            const polygon = new ymaps.GeoObject(
+                                {
+                                    //Описание геометрии объекта
+                                    geometry: {
+                                        type: "Polygon", //тип
+                                        coordinates: geographyObjectCoordinate.coordinates //координаты вершин
+                                    },
+                                    //Описание свойств геоообъекта
+                                    properties: {
+                                        id: geographyObjectCoordinate.id, //идентификатор координаты географического объекта
+                                        geographyObjectId: geographyObjectCoordinates.id, //идентификатор географического объекта
+                                        coordinateId: geographyObjectCoordinate.coordinate_id, //идентификатор координаты
+                                        name: geographyObjectCoordinates.Name, //наименование географического объекта
+                                        center: geographyObjectCoordinates.center, //центр географического объекта
+                                        zoom: geographyObjectCoordinates.zoom //масштаб географического объекта
+                                    }
+                                },
+                                //Описание опций геообъекта
+                                {
+                                    fillColor: geographyObjectCoordinate.background_color, //цвет заливки
+                                    strokeColor: geographyObjectCoordinate.border_color, //цвет обводки
+                                    opacity: 1, //общая прозрачность
+                                    strokeWidth: 0.1 //ширина обводка
+                                }
+                            );
+
+                            //Добавление полигона в коллекцию геообъектов карты
+                            map.geoObjects.add(polygon);
+                        }
+                    }
+                    catch (error) {
+                        console.error(`Ошибка обработки координат ${error}`);
+                    }
+                }
+            }
+            catch (error) {
+                console.error(`Ошибка получения координат ${error}`);
+            }
         }
     }, []);
 
