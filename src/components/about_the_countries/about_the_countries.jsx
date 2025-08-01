@@ -24,12 +24,11 @@ export default function AboutTheCountries({ coordinates }) {
             //Создание карты
             const map = new ymaps.Map("map", {
                 type: 'my#type', //тип карты
-                center: [0, 0], //центр позиционирования
+                center: [ 40.792351164937195, 11.919921874999996 ], //центр позиционирования
                 zoom: 2, //коэффициент масштабирования
                 controls: [], //элементы управления
             }, {
-                //restrictMapArea: true, //ограничение области карты видимой областью
-                restrictMapArea: [[-85, -180], [85, 179]], //ограничение области карты прямоугольной областью
+                restrictMapArea: [[-25, -170], [75, 170]], //ограничение области карты прямоугольной областью
                 minZoom: 2, //минимальный масштаб
                 suppressMapOpenBlock: true, //кнопка "Открыть в Яндекс картах"
             });
@@ -69,6 +68,11 @@ export default function AboutTheCountries({ coordinates }) {
 
                 //Возврат положения
                 return tick;
+            });
+
+            map.events.add('boundschange', function (e) {
+                const newCenter = map.getCenter();
+                //console.log('Новый центр карты:', newCenter);
             });
 
             //Отрисовка полигонов
