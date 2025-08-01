@@ -24,7 +24,7 @@ export default function AboutTheCountries({ coordinates }) {
             //Создание карты
             const map = new ymaps.Map("map", {
                 type: 'my#type', //тип карты
-                center: [ 40.792351164937195, 11.919921874999996 ], //центр позиционирования
+                center: [39,3], //центр позиционирования
                 zoom: 2, //коэффициент масштабирования
                 controls: [], //элементы управления
             }, {
