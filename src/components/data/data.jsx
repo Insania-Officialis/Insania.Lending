@@ -38,7 +38,7 @@ export default function Data() {
             //Запрос кэша
             queryFn: async () => {
                 //Получение стран
-                const countriesData = await politicsApi.getCountriesList();
+                const countriesData = await politicsApi.getCountriesList(true);
                 //Проверка данных
                 if (!countriesData?.items?.length || !countriesData?.success) throw new Error('Не получены страны или список пуст');
                 //Возврат результата
@@ -228,6 +228,24 @@ export default function Data() {
             staleTime: 24 * 60 * 60 * 1000,
             //Добавление зависимостей
             enabled: !!queriesFirst[6]?.data
+        })),
+        //Проход по коллекции стран
+        ...(queriesFirst[1]?.data || []).map(country => ({
+            //Ключ кэша
+            queryKey: ['countries_coordinates', country.id],
+            //Запрос кэша
+            queryFn: async () => {
+                //Получение изображений
+                const coordinates = await politicsApi.getCountriesCoordinatesList(country.id);
+                //Проверка данных
+                if (!coordinates?.items?.length || !coordinates?.success) throw new Error('Не получены координаты страны или список пуст');
+                //Возврат результата
+                return coordinates || {};
+            },
+            //Время кэширования в милисекундах
+            staleTime: 24 * 60 * 60 * 1000,
+            //Добавление зависимостей
+            enabled: !!queriesFirst[1]?.data
         }))
     ]);
     
@@ -245,6 +263,7 @@ export default function Data() {
     const factionsImagesQueries = queriesSecond.slice(racesCount + racesCount + countriesCount, racesCount + racesCount + countriesCount + factionsCount);
     const newsImagesQueries = queriesSecond.slice(racesCount + racesCount + countriesCount + factionsCount, racesCount + racesCount + countriesCount + factionsCount + newsCount);
     const geographyObjectsCoordinatesQueries = queriesSecond.slice(racesCount + racesCount + countriesCount + factionsCount + newsCount, racesCount + racesCount + countriesCount + factionsCount + newsCount + geographyObjectCount);
+    const countriesCoordinatesQueries = queriesSecond.slice(racesCount + racesCount + countriesCount + factionsCount + newsCount + geographyObjectCount, racesCount + racesCount + countriesCount + factionsCount + newsCount + geographyObjectCount + countriesCount);
 
     //Получение наций
     const nationsData = nationsQueries.map(query => query.data).filter(Boolean).flat();
@@ -372,7 +391,10 @@ export default function Data() {
                         <img key={nation.id} alt={nation.name} src={nation.image} />
                     ))}
                 </div>
-                <AboutTheCountries coordinates={geographyObjectsCoordinatesQueries?.map(query => query.data).filter(Boolean).flat()} />
+                <AboutTheCountries
+                    coordinatesGeographyObjects={geographyObjectsCoordinatesQueries?.map(query => query.data).filter(Boolean).flat()}
+                    coordinatesCountries={countriesCoordinatesQueries?.map(query => query.data).filter(Boolean).flat()}
+                />
             </div>
             {!isReady && <Spinner />}
         </>

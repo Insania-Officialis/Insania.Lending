@@ -2,7 +2,7 @@
 
 import mapImage from '../../../public/images/map/map.png';
 
-export default function AboutTheCountries({ coordinates }) {
+export default function AboutTheCountries({ coordinatesGeographyObjects, coordinatesCountries }) {
     useEffect(() => {
         //Запуск инициализации карты, при её готовности
         ymaps.ready(init);
@@ -77,6 +77,9 @@ export default function AboutTheCountries({ coordinates }) {
 
             //Отрисовка полигонов
             try {
+                //Создание коллекции координат
+                let coordinates = [...coordinatesGeographyObjects, ...coordinatesCountries];
+
                 //Проверки
                 if (!coordinates?.length) throw new Error('Не указан массив координат географических объектов');
 
