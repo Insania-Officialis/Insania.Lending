@@ -7,6 +7,21 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
         //Запуск инициализации карты, при её готовности
         ymaps.ready(init);
 
+        //Координаты географических объектов
+        var geographyObjectsCoordinates;
+
+        //Координаты стран
+        var countriesCoordinates;
+
+        //Полгионы географических объектов
+        var geographyObjectsPolygons;
+
+        //Полгионы стран
+        var countriesPolygons;
+
+        //Карта
+        var map;
+
         //Функция инициализации карты
         async function init() {
             //Создание собственного слоя
@@ -75,71 +90,139 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
                 //console.log('Новый центр карты:', newCenter);
             });
 
-            //Отрисовка полигонов
-            try {
-                //Создание коллекции координат
-                let coordinates = [...coordinatesGeographyObjects, ...coordinatesCountries];
+            //Инициализации коллекций объектов
+            geographyObjectsPolygons = new ymaps.GeoObjectCollection();
+            countriesPolygons = new ymaps.GeoObjectCollection();
 
-                //Проверки
-                if (!coordinates?.length) throw new Error('Не указан массив координат географических объектов');
+            //Добавление полигонов в коллекции геообъектов карты
+            map.geoObjects.add(geographyObjectsPolygons);
+            geographyObjectsPolygons.add(createPolygon(coordinatesGeographyObjects, 'geographyObjects'));
+            map.geoObjects.add(countriesPolygons);
+            countriesPolygons.add(createPolygon(coordinatesCountries, 'politics'));
 
-                //Проход по массиву координат географических объектов
-                for (const geographyObjectCoordinates of coordinates) {
-                    try {
+            //Подписки на изменение маркера видимости
+            document.querySelector('input[value="objects"]').addEventListener('change', updateVisibility);
+            document.querySelector('input[value="countries"]').addEventListener('change', updateVisibility);
+        }
+
+        //Функция создания полигонов
+        function createPolygon(coordinates, type) {
+            //Проверки
+            if (!coordinates?.length) throw new Error('Не указан массив координат');
+
+            //Формирование переменной результата
+            var polygons = new ymaps.GeoObjectCollection();
+
+            //Проход по массиву координат
+            for (const itemCoordinates of coordinates) {
+                try {
+                    //Проверки
+                    if (!itemCoordinates?.items?.length) throw new Error('Не указаны координаты объекта');
+
+                    //Проход по массиву координат объекта
+                    for (const coordinate of itemCoordinates.items) {
                         //Проверки
-                        if (!geographyObjectCoordinates?.items?.length) throw new Error('Не указаны координаты географического объекта');
+                        if (!coordinate?.coordinates?.length) throw new Error('Не указана координата географического объекта');
 
-                        //Проход по массиву координат географического объекта
-                        for (const geographyObjectCoordinate of geographyObjectCoordinates.items) {
-                            //Проверки
-                            if (!geographyObjectCoordinate?.coordinates?.length) throw new Error('Не указана координата географического объекта');
-
-                            //Создание полигона
-                            const polygon = new ymaps.GeoObject(
-                                {
-                                    //Описание геометрии объекта
-                                    geometry: {
-                                        type: "Polygon", //тип
-                                        coordinates: geographyObjectCoordinate.coordinates //координаты вершин
-                                    },
-                                    //Описание свойств геоообъекта
-                                    properties: {
-                                        id: geographyObjectCoordinate.id, //идентификатор координаты географического объекта
-                                        geographyObjectId: geographyObjectCoordinates.id, //идентификатор географического объекта
-                                        coordinateId: geographyObjectCoordinate.coordinate_id, //идентификатор координаты
-                                        name: geographyObjectCoordinates.Name, //наименование географического объекта
-                                        center: geographyObjectCoordinates.center, //центр географического объекта
-                                        zoom: geographyObjectCoordinates.zoom //масштаб географического объекта
-                                    }
+                        //Создание полигона
+                        const polygon = new ymaps.GeoObject(
+                            {
+                                //Описание геометрии объекта
+                                geometry: {
+                                    type: 'Polygon', //тип
+                                    coordinates: coordinate.coordinates //координаты вершин
                                 },
-                                //Описание опций геообъекта
-                                {
-                                    fillColor: geographyObjectCoordinate.background_color, //цвет заливки
-                                    strokeColor: geographyObjectCoordinate.border_color, //цвет обводки
-                                    opacity: 1, //общая прозрачность
-                                    strokeWidth: 0.1 //ширина обводка
+                                //Описание свойств геоообъекта
+                                properties: {
+                                    id: coordinate.id, //идентификатор координаты географического объекта
+                                    objectId: itemCoordinates.id, //идентификатор географического объекта
+                                    coordinateId: coordinate.coordinate_id, //идентификатор координаты
+                                    type: type, //тип координат
+                                    name: itemCoordinates.name, //наименование географического объекта
+                                    center: coordinate.center, //центр географического объекта
+                                    zoom: coordinate.zoom //масштаб географического объекта
                                 }
-                            );
+                            },
+                            //Описание опций геообъекта
+                            {
+                                draggable: false, //Добавление возможности перетаскивания
+                                fillColor: coordinate.background_color, //цвет заливки
+                                strokeColor: coordinate.border_color, //цвет обводки
+                                fillOpacity: 0.75, //общая прозрачность
+                                strokeWidth: 0.1 //ширина обводка
+                            }
+                        );
 
-                            //Добавление полигона в коллекцию геообъектов карты
-                            map.geoObjects.add(polygon);
-                        }
-                    }
-                    catch (error) {
-                        console.error(`Ошибка обработки координат ${error}`);
+                        ////Добавление события нажатия
+                        //polygon.events.add('contextmenu', viewMenuAction);
+
+                        ////Добавление события наведение курсора
+                        //polygon.events.add('mouseenter', function (e) {
+                        //    //Полученик параметров объекта
+                        //    const id = e.get('target').properties.get('objectId');
+                        //    const type = e.get('target').properties.get('type');
+
+                        //    //Увеличение прозрачности
+                        //    highlightPolygons(id, type, 1);
+                        //});
+
+                        ////Добавление события уведения курсора
+                        //polygon.events.add('mouseleave', function (e) {
+                        //    //Полученик параметров объекта
+                        //    const id = e.get('target').properties.get('objectId');
+                        //    const type = e.get('target').properties.get('type');
+
+                        //    //Сброс прозрачности
+                        //    resetPolygonsOpacity(id, type);
+                        //});
+
+                        //Добавление полигона в массив
+                        polygons.add(polygon);
                     }
                 }
+                catch (error) {
+                    console.error(`Ошибка обработки координат ${error}`);
+                }
             }
-            catch (error) {
-                console.error(`Ошибка получения координат ${error}`);
+
+            //Возврат результата
+            return polygons;
+        }
+
+        //Функция обновления видимости
+        function updateVisibility() {
+            //Получение нажатия элементов
+            const objectsChecked = document.querySelector('input[value="objects"]').checked;
+            const countriesChecked = document.querySelector('input[value="countries"]').checked;
+
+            //Изменение видимости
+            geographyObjectsPolygons.options.set('visible', objectsChecked);
+            countriesPolygons.options.set('visible', countriesChecked);
+
+            //Выход, если просто выключили географические объекты
+            if (!objectsChecked) return;
+
+            //Перевключение видимости нижестоящих объектов, если они включены
+            if (countriesChecked) {
+                countriesPolygons.options.set('visible', false);
+                countriesPolygons.options.set('visible', true);
             }
         }
     }, []);
 
     //Вывод основного содержимого
     return (
-        <div className="about-the-countries__block">
-            <div id="map" className="about-the-countries__map-block"></div>
+        <div className='about-the-countries__block'>
+            <div id='map' className='about-the-countries__map-block'></div>
+            <div id='layerPanel' className='about-the-countries__block-layer'>
+                <h3>Слои:</h3>
+                <label className='about-the-countries__label-layer'>
+                    <input className='about-the-countries__checkbox-layer' type='checkbox' name='filter' value='objects' defaultChecked={true} /> Показать объекты
+                </label>
+                <label className='about-the-countries__label-layer'>
+                    <input className='about-the-countries__checkbox-layer' type='checkbox' name='filter' value='countries' defaultChecked={true} /> Показать страны
+                </label>
+            </div>
         </div>
     )
 }

@@ -35,7 +35,7 @@ async function getCountriesList(has_coordinates = null) {
 }
 
 //Функция получения координат стран
-export async function getCountriesCoordinatesList(countryId = null) {
+async function getCountriesCoordinatesList(countryId = null) {
     try {
         //Проверки
         if (countryId === null && countryId === undefined) throw new Error('Не указан идентификатор страны');

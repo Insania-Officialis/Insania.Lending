@@ -304,6 +304,7 @@ a {
 
 /*Блок информации о странах*/
 .about-the-countries__block {
+  position: relative;
   display: flex;
   width: 100%;
   height: 90vh;
@@ -313,6 +314,71 @@ a {
 .about-the-countries__map-block {
   width: 100%;
   height: 90%;
+}
+
+/*Блок слоёв в инорфмации о странах*/
+.about-the-countries__block-layer {
+  z-index: 1000;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  width: 30rem;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 0.5rem;
+  background-color: hsl(0, 0%, 10%);
+  font-size: 2rem;
+}
+
+/*Текст слоёв в информации о странах*/
+.about-the-countries__label-layer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/*Маркер слоёв в информации о странах*/
+.about-the-countries__checkbox-layer {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background-color: hsl(0, 0%, 75%);
+  cursor: pointer;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  /*Выбранное состояние маркера слоёв в информации о странах*/
+}
+.about-the-countries__checkbox-layer:checked {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='hsl(0%2C0%25%2C10%25)' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*Блок меню действий в информации о странах*/
+.about-the-countries__block-menu-action {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: hsl(0, 0%, 10%);
+}
+
+/*Кнопка действий в информации о странах*/
+.about-the-countries__button-action {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  /*Наведённое состояние кнопки действий в информации о странах*/
+}
+.about-the-countries__button-action:hover {
+  background-color: hsl(0, 0%, 20%);
 }
 
 /*Страницы*/
