@@ -7,12 +7,6 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
         //Запуск инициализации карты, при её готовности
         ymaps.ready(init);
 
-        //Координаты географических объектов
-        var geographyObjectsCoordinates;
-
-        //Координаты стран
-        var countriesCoordinates;
-
         //Полгионы географических объектов
         var geographyObjectsPolygons;
 
@@ -156,25 +150,25 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
                         ////Добавление события нажатия
                         //polygon.events.add('contextmenu', viewMenuAction);
 
-                        ////Добавление события наведение курсора
-                        //polygon.events.add('mouseenter', function (e) {
-                        //    //Полученик параметров объекта
-                        //    const id = e.get('target').properties.get('objectId');
-                        //    const type = e.get('target').properties.get('type');
+                        //Добавление события наведение курсора
+                        polygon.events.add('mouseenter', function (e) {
+                            //Полученик параметров объекта
+                            const id = e.get('target').properties.get('objectId');
+                            const type = e.get('target').properties.get('type');
 
-                        //    //Увеличение прозрачности
-                        //    highlightPolygons(id, type, 1);
-                        //});
+                            //Увеличение прозрачности
+                            highlightPolygons(id, type, 1);
+                        });
 
-                        ////Добавление события уведения курсора
-                        //polygon.events.add('mouseleave', function (e) {
-                        //    //Полученик параметров объекта
-                        //    const id = e.get('target').properties.get('objectId');
-                        //    const type = e.get('target').properties.get('type');
+                        //Добавление события уведения курсора
+                        polygon.events.add('mouseleave', function (e) {
+                            //Полученик параметров объекта
+                            const id = e.get('target').properties.get('objectId');
+                            const type = e.get('target').properties.get('type');
 
-                        //    //Сброс прозрачности
-                        //    resetPolygonsOpacity(id, type);
-                        //});
+                            //Сброс прозрачности
+                            resetPolygonsOpacity(id, type);
+                        });
 
                         //Добавление полигона в массив
                         polygons.add(polygon);
@@ -208,6 +202,20 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
                 countriesPolygons.options.set('visible', true);
             }
         }
+
+        //Функция подсветки всех полигонов объекта
+        function highlightPolygons(objectId, type, opacity) {
+            [geographyObjectsPolygons, countriesPolygons].forEach(x => {
+                x.each(y => {
+                    y.each(z => {
+                        if (z.properties.get('objectId') === objectId && z.properties.get('type') === type) z.options.set('fillOpacity', opacity);
+                    });
+                });
+            });
+        }
+
+        //Функция сброса прозрачности
+        const resetPolygonsOpacity = (objectId, type) => highlightPolygons(objectId, type, 0.75);
     }, []);
 
     //Вывод основного содержимого
