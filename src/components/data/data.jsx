@@ -394,6 +394,7 @@ export default function Data() {
                 <AboutTheCountries
                     coordinatesGeographyObjects={geographyObjectsCoordinatesQueries?.map(query => query.data).filter(Boolean).flat()}
                     coordinatesCountries={countriesCoordinatesQueries?.map(query => query.data).filter(Boolean).flat()}
+                    countries={countriesWithImages}
                 />
             </div>
             {!isReady && <Spinner />}

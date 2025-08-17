@@ -80,3 +80,40 @@
         background-color: $color__background--secondary;
     }
 }
+
+/*Блок информации о стране*/
+.about-the-country__block {
+    z-index: 2;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: $color__background--shadow;
+}
+
+/*Блок содержимого информации о стране*/
+.about-the-country__block-content {
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: $color__background--primary;
+    font-size: 2rem;
+}
+
+/*Блок информации информации о стране*/
+.about-the-country__block-info {
+    display: flex;
+    flex-direction: row;
+}
+
+/*Изображение в информации о стране*/
+.about-the-country__image {
+    height: 30rem;
+}

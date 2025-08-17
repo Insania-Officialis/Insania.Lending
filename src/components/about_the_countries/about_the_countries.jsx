@@ -1,16 +1,23 @@
-﻿import { useEffect } from 'react';
+﻿import { useEffect, useState } from 'react';
+
+import AboutTheCountry from './about_the_country.jsx';
 
 import mapImage from '../../../public/images/map/map.png';
 
-export default function AboutTheCountries({ coordinatesGeographyObjects, coordinatesCountries }) {
+export default function AboutTheCountries({ coordinatesGeographyObjects, coordinatesCountries, countries }) {
+    //Добавление отслеживания
+    const [isOpenModal, setIsOpenModal] = useState(false);
+    const [country, setCountry] = useState({});
+
+    //Выполнение действий при монтировании компонента
     useEffect(() => {
         //Запуск инициализации карты, при её готовности
         ymaps.ready(init);
 
-        //Полгионы географических объектов
+        //Полигоны географических объектов
         var geographyObjectsPolygons;
 
-        //Полгионы стран
+        //Полигоны стран
         var countriesPolygons;
 
         //Карта
@@ -34,7 +41,7 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
             ));
 
             //Создание карты
-            const map = new ymaps.Map("map", {
+            map = new ymaps.Map("map", {
                 type: 'my#type', //тип карты
                 center: [39,3], //центр позиционирования
                 zoom: 2, //коэффициент масштабирования
@@ -145,7 +152,7 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
                                 draggable: false, //Добавление возможности перетаскивания
                                 fillColor: coordinate.background_color, //цвет заливки
                                 strokeColor: coordinate.border_color, //цвет обводки
-                                fillOpacity: 0.75, //общая прозрачность
+                                fillOpacity: 0.5, //общая прозрачность
                                 strokeWidth: 0.1 //ширина обводка
                             }
                         );
@@ -181,7 +188,11 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
                             //Получение параметров объекта
                             const target = e.get('target');
                             const id = target.properties.get('objectId');
+                            const name = target.properties.get('name');
                             const type = target.properties.get('type');
+                            const country = countries.find(x => x.id === id);
+                            const image = country.image;
+                            const description = country.description;
 
                             //Сброс выделения нажатого полигона
                             if (lastClickedPolygon && lastClickedPolygon.properties.get('objectId') !== id) {
@@ -201,6 +212,10 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
 
                             //Запись нажатого полигона
                             lastClickedPolygon = target;
+
+                            //Открытие модального окна
+                            setIsOpenModal(true);
+                            setCountry({ name: name, image: image, description: description });
                         });
 
                         //Добавление полигона в массив
@@ -248,7 +263,7 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
         }
 
         //Функция сброса прозрачности
-        const resetPolygonsOpacity = (objectId, type) => highlightPolygons(objectId, type, 0.75);
+        const resetPolygonsOpacity = (objectId, type) => highlightPolygons(objectId, type, 0.5);
     }, []);
 
     //Вывод основного содержимого
@@ -264,6 +279,7 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
                     <input className='about-the-countries__checkbox-layer' type='checkbox' name='filter' value='countries' defaultChecked={true} /> Показать страны
                 </label>
             </div>
+            <AboutTheCountry isOpen={isOpenModal} setIsOpen={setIsOpenModal} country={country} />
         </div>
     )
 }
