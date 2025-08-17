@@ -16,6 +16,9 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
         //Карта
         var map;
 
+        //Последний нажатый полигон
+        var lastClickedPolygon = null;
+
         //Функция инициализации карты
         async function init() {
             //Создание собственного слоя
@@ -152,7 +155,7 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
 
                         //Добавление события наведение курсора
                         polygon.events.add('mouseenter', function (e) {
-                            //Полученик параметров объекта
+                            //Получение параметров объекта
                             const id = e.get('target').properties.get('objectId');
                             const type = e.get('target').properties.get('type');
 
@@ -162,12 +165,42 @@ export default function AboutTheCountries({ coordinatesGeographyObjects, coordin
 
                         //Добавление события уведения курсора
                         polygon.events.add('mouseleave', function (e) {
-                            //Полученик параметров объекта
+                            //Получение параметров объекта
                             const id = e.get('target').properties.get('objectId');
                             const type = e.get('target').properties.get('type');
 
                             //Сброс прозрачности
                             resetPolygonsOpacity(id, type);
+
+                            //Сброс нажатого полигона
+                            lastClickedPolygon = null;
+                        });
+
+                        //Добавление события нажатия
+                        polygon.events.add('click', function (e) {
+                            //Получение параметров объекта
+                            const target = e.get('target');
+                            const id = target.properties.get('objectId');
+                            const type = target.properties.get('type');
+
+                            //Сброс выделения нажатого полигона
+                            if (lastClickedPolygon && lastClickedPolygon.properties.get('objectId') !== id) {
+                                //Получение параметров нажатого объекта
+                                const prevId = lastClickedPolygon.properties.get('objectId');
+                                const prevType = lastClickedPolygon.properties.get('type');
+
+                                //Сброс прозрачности нажатого объекта
+                                resetPolygonsOpacity(prevId, prevType);
+
+                                //Сброс нажатого полигона
+                                lastClickedPolygon = null;
+                            }
+
+                            //Увеличение прозрачности
+                            highlightPolygons(id, type, 1);
+
+                            //Запись нажатого полигона
+                            lastClickedPolygon = target;
                         });
 
                         //Добавление полигона в массив
