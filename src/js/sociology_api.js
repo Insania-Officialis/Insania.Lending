@@ -1,5 +1,5 @@
 ﻿//Объявление переменной ссылки на api работы с социологией
-const baseUrl = 'http://192.168.31.234:7084/';
+const baseUrl = 'http://192.168.1.104:7084/';
 
 //Функция получения фракций
 async function getFactionsList() {
