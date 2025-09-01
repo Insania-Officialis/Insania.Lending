@@ -1,5 +1,5 @@
 ﻿//Объявление переменной ссылки на api работы с географией
-const baseUrl = 'http://192.168.1.104:7086/';
+const baseUrl = 'http://192.168.31.234:7086/';
 
 //Функция получения списка географических объектов
 export async function getGeographyObjectsList(has_coordinates = null, type_ids = null) {

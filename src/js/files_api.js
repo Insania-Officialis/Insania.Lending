@@ -1,5 +1,5 @@
 ﻿//Объявление переменной ссылки на api работы с файлами
-const baseUrl = 'http://192.168.1.104:7082/';
+const baseUrl = 'http://192.168.31.234:7082/';
 
 //Функция получения файлов по идентификтору сущности и идентификатору типа
 async function getFilesListByEntityIdAndTypeId(entityId, typeId) {
