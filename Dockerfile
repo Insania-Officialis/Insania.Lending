@@ -5,7 +5,7 @@ FROM node:20-bookworm as builder
 WORKDIR /app
 
 #Копирование пакетов
-COPY package*.json ./
+COPY package*.json package-lock.json* ./
 
 #Установка зависимостей
 RUN npm ci
