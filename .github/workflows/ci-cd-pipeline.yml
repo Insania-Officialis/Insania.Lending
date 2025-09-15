@@ -16,7 +16,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [insania-linux-server, insania-windows-server]
+        os: [Insania-Linux-Server, Insania-Windows-Server]
 
     #Шаги выполнения задания
     steps:
