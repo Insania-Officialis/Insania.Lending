@@ -5,7 +5,10 @@ FROM node:20-bookworm as builder
 WORKDIR /app
 
 #Копирование пакетов
-COPY package*.json package-lock.json* ./
+COPY package*.json ./
+RUN if [ -f package-lock.json ]; then npm ci; \ 
+    else echo "Warning: package-lock.json not found. Using npm install instead." && npm install; \
+    fi
 
 #Установка зависимостей
 RUN npm ci
