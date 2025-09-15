@@ -5,13 +5,13 @@ FROM node:20-bookworm as builder
 WORKDIR /app
 
 #Копирование пакетов
-COPY Insania.Lending/package*.json ./
+COPY package*.json ./
 
 #Установка зависимостей
 RUN npm ci
 
 #Копирование файлов проекта
-COPY Insania.Lending/ ./
+COPY . ./
 
 #Сборка приложения
 RUN npm run build && ls -la /app/
