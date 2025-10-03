@@ -1,14 +1,16 @@
-﻿/*Базовые*/
+﻿//Базовые
 @import 'styles/base/colors';
 @import 'styles/base/elements';
 @import 'styles/base/fonts';
 
-/*Компоненты*/
+//Компоненты
 @import 'styles/components/spinner';
-@import 'styles/components/menu';
+//@import 'styles/components/menu';
 @import 'styles/components/about_the_project';
+/*
 @import 'styles/components/about_the_races';
 @import 'styles/components/about_the_countries';
+*/
 
-/*Страницы*/
+//Страницы
 @import 'styles/pages/index';

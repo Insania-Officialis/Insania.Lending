@@ -1,15 +1,7 @@
 ﻿@use "../base/colors";
 
-/*Блок основной части*/
-.main__block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
-
-/*Текст основной части*/
-.main__text {
-    width: 50%;
-    font-size: 3rem;
+//Блок контента
+.index__block {
+    height: 100%;
+    background-color: $background__body--primary;
 }
