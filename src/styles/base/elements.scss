@@ -22,3 +22,11 @@ input {
 a {
     color: $color__text--primary;
 }
+
+//Базовая кнопка
+.base__button {
+    padding: .75rem 1.5rem;
+    border: .1rem solid $color__text--primary;
+    border-radius: 2rem;
+    font-size: 1.25rem;
+}

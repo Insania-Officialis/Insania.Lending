@@ -11,8 +11,8 @@ export function AboutTheProject({ image }) {
                             <path d="M0.5 4.93301H60.5M60.5 4.93301L64.5 0.933014L68.5 4.93301L64.5 9.06699L60.5 4.93301Z" stroke="url(#paint0_linear_27_81)" />
                             <defs>
                                 <linearGradient id="paint0_linear_27_81" x1="0.5" y1="4.93301" x2="67.5" y2="4.93301" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="white" stop-opacity="0" />
-                                    <stop offset="1" stop-color="white" />
+                                    <stop stopColor="white" stopOpacity="0" />
+                                    <stop offset="1" stopColor="white" />
                                 </linearGradient>
                             </defs>
                         </svg>
@@ -21,15 +21,15 @@ export function AboutTheProject({ image }) {
                             <path d="M69.5 4.93301H9.5M9.5 4.93301L5.5 0.933014L1.5 4.93301L5.5 9.06699L9.5 4.93301Z" stroke="url(#paint0_linear_27_82)" />
                             <defs>
                                 <linearGradient id="paint0_linear_27_82" x1="69.5" y1="4.93301" x2="2.50001" y2="4.93301" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="white" stop-opacity="0" />
-                                    <stop offset="1" stop-color="white" />
+                                    <stop stopColor="white" stopOpacity="0" />
+                                    <stop offset="1" stopColor="white" />
                                 </linearGradient>
                             </defs>
                         </svg>
                     </div>
                 </div>
                 <span className='about-the-project__text-description'>Мир, где множество разумных творят магию и искусства, ведут торговлю и ремёсла, поклоняются богам, воюют и интригуют. Мир, ставший домом для множества рас. Мир, где каждый может побороться за место под солнцем, но не каждый победит.</span>
-                <a className='about-the-project__button'>Начать игру</a>
+                <a className='base__button'>Начать игру</a>
             </div>
         </div>
     )
