@@ -2,6 +2,6 @@
 
 //Блок контента
 .index__block {
-    height: 100%;
-    background-color: $background__body--primary;
+    background-image: url('/images/background.png');
+    background-attachment: fixed;
 }
