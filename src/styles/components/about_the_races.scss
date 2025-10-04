@@ -3,8 +3,7 @@
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    height: 100vh;
-    padding: 5rem 10rem 0 10rem;
+    padding: 5rem 10rem;
 }
 
 //Блок описания в информации о расах
@@ -25,18 +24,30 @@
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    height: 20rem;
 }
 
 //Блок списка рас в информации о расах
 .about-the-races__block-races-list {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     flex: 1;
-    gap: .5rem;
+    gap: 1rem;
+    padding: 1rem;
     background-color: $background__body--primary;
     border: 0.1rem solid hsl(0, 0%, 75%);
     border-radius: 1rem;
+}
+
+//Блок элемента списка рас в информации о расах
+.about-the-races__block-races-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 calc(25% - 0.75rem);
+    gap: .5rem;
+    padding: 1rem;
+    border: 0.1rem solid hsl(0, 0%, 75%);
 }
 
 //Блок расы в информации о расах
@@ -48,4 +59,16 @@
     background-color: $background__body--primary;
     border: 0.1rem solid hsl(0, 0%, 75%);
     border-radius: 1rem;
+}
+
+//Изображение расы в информации о расах
+.about-the-races__image-race {
+    height: 4rem;
+}
+//Активный блок изображение расы в информации о расах
+.about-the-races__block-image-race--active {
+    background-image: url('/images/active-race.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
 }

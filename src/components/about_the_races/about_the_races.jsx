@@ -63,11 +63,6 @@ export function AboutTheRaces({ races, nations }) {
             "description": "Альвы - "
         },
         {
-            "id": 15,
-            "name": "Антропозавр",
-            "description": "Антропозавры - "
-        },
-        {
             "id": 16,
             "name": "Элвин",
             "description": "Элвины - "
@@ -76,7 +71,12 @@ export function AboutTheRaces({ races, nations }) {
             "id": 17,
             "name": "Дану",
             "description": "Дану - "
-        }
+        },
+        {
+            "id": 15,
+            "name": "Антропозавр",
+            "description": "Антропозавры - "
+        },
     ];
 
     //Возврат компонента
@@ -91,8 +91,8 @@ export function AboutTheRaces({ races, nations }) {
                 <div className='about-the-races__block-races-list'>
                     {mockRaces.map(race => {
                         return (
-                            <div>
-                                {/*<img hr*/}
+                            <div key={race.id} className={'about-the-races__block-races-list-item' + (race.id === 1 ? ' about-the-races__block-image-race--active' : '')} >
+                                <img src='favicon.ico' alt='' className='about-the-races__image-race' />
                                 <span>{race.name}</span>
                             </div>
                         )
