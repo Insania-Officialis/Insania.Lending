@@ -50,17 +50,6 @@
     border: 0.1rem solid hsl(0, 0%, 75%);
 }
 
-//Блок расы в информации о расах
-.about-the-races__block-race {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    gap: .5rem;
-    background-color: $background__body--primary;
-    border: 0.1rem solid hsl(0, 0%, 75%);
-    border-radius: 1rem;
-}
-
 //Изображение расы в информации о расах
 .about-the-races__image-race {
     height: 4rem;
@@ -71,4 +60,22 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
+}
+
+//Блок расы в информации о расах
+.about-the-races__block-race {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: $background__body--primary;
+    border: 0.1rem solid hsl(0, 0%, 75%);
+    border-radius: 1rem;
+}
+
+//Блок расы в информации о расах
+.about-the-races__block-image-race {
+    display: flex;
+    justify-content: center;
 }
