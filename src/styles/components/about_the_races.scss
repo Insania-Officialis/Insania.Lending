@@ -101,3 +101,14 @@
     flex-direction: row;
     gap: 1rem;
 }
+
+//Изображение нации в информации о расах
+.about-the-races__image-nation {
+    height: 4rem;
+}
+//Активное изображение нации в информации о расах
+.about-the-races__image-nation--active {
+    padding: .1rem;
+    border: .1rem solid $color__text--primary;
+    border-radius: 10rem;
+}

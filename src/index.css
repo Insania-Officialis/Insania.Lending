@@ -244,6 +244,16 @@ a {
   gap: 1rem;
 }
 
+.about-the-races__image-nation {
+  height: 4rem;
+}
+
+.about-the-races__image-nation--active {
+  padding: 0.1rem;
+  border: 0.1rem solid hsl(0, 0%, 75%);
+  border-radius: 10rem;
+}
+
 .index__block {
   background-image: url("/images/background.png");
   background-attachment: fixed;

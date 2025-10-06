@@ -174,7 +174,7 @@ export function AboutTheRaces({ races, nations }) {
                         <div className='about-the-races__block-nations-images'>
                             {mockNations.map(nation => {
                                 return (
-                                    <img key={nation.id} src='favicon.ico' alt='' className='about-the-races__image-race' />
+                                    <img key={nation.id} src='favicon.ico' alt='' className={'about-the-races__image-nation' + (nation.active === true ? ' about-the-races__image-nation--active' : '')} />
                                 )
                             })}
                         </div>
