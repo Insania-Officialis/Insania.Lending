@@ -225,6 +225,25 @@ a {
   justify-content: center;
 }
 
+.about-the-races__block-nations {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-the-races__block-nations-images {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.about-the-races__block-nations-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
 .index__block {
   background-image: url("/images/background.png");
   background-attachment: fixed;

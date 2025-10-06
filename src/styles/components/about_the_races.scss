@@ -74,8 +74,30 @@
     border-radius: 1rem;
 }
 
-//Блок расы в информации о расах
+//Блок изображения расы в информации о расах
 .about-the-races__block-image-race {
     display: flex;
     justify-content: center;
+}
+
+//Блок наций в информации о расах
+.about-the-races__block-nations {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+//Блок изображений наций в информации о расах
+.about-the-races__block-nations-images {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+
+//Блок действий наций в информации о расах
+.about-the-races__block-nations-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }
