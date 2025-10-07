@@ -254,6 +254,76 @@ a {
   border-radius: 10rem;
 }
 
+.about-the-countries__block {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 5rem 10rem;
+}
+
+.about-the-countries__block-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-the-countries__text-title {
+  font-size: 1.5rem;
+}
+
+.about-the-countries__block-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.about-the-countries__block-countries {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.about-the-countries__block-country {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: 0.1rem solid hsl(0, 0%, 75%);
+  border-radius: 1rem;
+}
+
+.about-the-countries__block-country--even {
+  margin-top: 3rem;
+}
+
+.about-the-countries__block-country--odd {
+  margin-bottom: 3rem;
+}
+
+.about-the-countries__image-country {
+  height: 25rem;
+  width: 20rem;
+}
+
+.about-the-countries__block-text-country {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.about-the-countries__block-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.about-the-countries__block-button {
+  display: flex;
+  justify-content: center;
+}
+
 .index__block {
   background-image: url("/images/background.png");
   background-attachment: fixed;
