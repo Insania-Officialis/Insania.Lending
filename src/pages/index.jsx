@@ -4,6 +4,7 @@ import { Menu } from '../components/menu/menu.jsx';
 import { AboutTheProject } from '../components/about_the_project/about_the_project.jsx';
 import { AboutTheRaces } from '../components/about_the_races/about_the_races.jsx';
 import { AboutTheCountries } from '../components/about_the_countries/about_the_countries.jsx';
+import { CallToAction } from '../components/call_to_action/call_to_action.jsx';
 
 export default function Index() {
     //Формирование клиента запросов
@@ -18,6 +19,7 @@ export default function Index() {
                     <AboutTheProject />
                     <AboutTheRaces />
                     <AboutTheCountries />
+                    <CallToAction />
                 </div>
             </div>
         </QueryClientProvider>
