@@ -1,22 +1,15 @@
-//Компонент информации о странах
-export function AboutTheCountries({ countries }) {
-    //Ромбы пагинации
-    let pagination = [];
-
-    //Заполнение массива ромбов пагинации
-    for (let i = 0; i < countries.length / 4 + 1; i++) {
-        pagination.push({
-            id: i,
-            active: i === 0 ? true : false
-        });
-    }
-
+//Компонент информации о персонажах
+export function AboutTheCharacters({ characters, races, nations, countries, fractions }) {
+    console.log(fractions.find(x => x.id === characters.find(x => x.active)?.fractionId)?.name);
+    console.log(characters.find(x => x.active)?.fractionId);
+    console.log(fractions);
     //Возврат компонента
     return (
-        <div className='about-the-countries__block'>
-            <div className='about-the-countries__block-title'>
-                <span className='about-the-countries__text-title'>Страны</span>
-                <div className='about-the-countries__block-actions'>
+        <div className='about-the-characters__block'>
+            <span className='about-the-characters__text-title'>Персонажи</span>
+            <div className='about-the-characters__block-description'>
+                <span className='about-the-characters__text-description'>Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Используется для образца шрифта и текста, а также для заполнения полей на странице.</span>
+                <div className='about-the-characters__block-actions'>
                     <a>
                         <svg width='22' height='39' viewBox='0 0 22 39' fill='none' xmlns='http://www.w3.org/2000/svg'>
                             <path d='M16.2552 34.9595C16.3394 34.8738 16.3394 34.7346 16.2552 34.6489L4.8769 23.0734C4.79263 22.9877 4.65585 22.9877 4.57159 23.0734C4.48733 23.1591 4.48733 23.2983 4.57159 23.384L15.9498 34.9595C16.0341 35.0463 16.1703 35.0458 16.2552 34.9595Z' fill='#C0C0C0' />
@@ -175,37 +168,44 @@ export function AboutTheCountries({ countries }) {
                     </a>
                 </div>
             </div>
-            <div className='about-the-countries__block-countries'>
-                {countries.slice(0, 4).map((country, index) => {
+            <div className='about-the-characters__block-characters'>
+                {characters.map(x => {
                     return (
-                        <div key={country.id} className={'about-the-countries__block-country' + (index % 2 === 0 ? ' about-the-countries__block-country--even' : ' about-the-countries__block-country--odd')}>
-                            <img src='favicon.ico' alt='' className='about-the-countries__image-country' />
-                            <div className='about-the-countries__block-text-country'>
-                                <span className='about-the-countries__text-title'>{country.name}</span>
-                                <svg height='6' viewBox='0 0 515 6' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                                    <path d='M0.866667 3L3.75342 5.88675L6.64017 3L3.75342 0.113249L0.866667 3ZM514.64 3.00004L511.753 0.113293L508.867 3.00004L511.753 5.8868L514.64 3.00004ZM3.75342 3L3.75342 3.5L511.753 3.50004L511.753 3.00004L511.753 2.50004L3.75342 2.5L3.75342 3Z' fill='#C0C0C0' fillOpacity='0.4' />
-                                </svg>
-                                <span>{country.description}</span>
-                            </div>
+                        <div key={x.id} className={x.active === true ? 'about-the-characters__block-image-character--active' : '-'}>
+                            <img src='favicon.ico' alt='' className='about-the-characters__image-character' />
                         </div>
-                    )
+                    );
                 })}
             </div>
-            <div className='about-the-countries__block-pagination'>
-                {pagination.map(x => {
-                    return (
-                        x.active
-                            ? <svg key={x.id} width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="11.3137" width="16" height="16" transform="rotate(45 11.3137 0)" fill="white"/>
-                            </svg>
-                            : <svg key={x.id} width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="12.0208" y="0.707107" width="15" height="15" transform="rotate(45 12.0208 0.707107)" stroke="white"/>
-                            </svg>
-                    )
-                })}
-            </div>
-            <div className='about-the-countries__block-button'>
-                <a className='base__button'>Интерактивная карта</a>
+            <div className='about-the-characters__block-character-information'>
+                <div className='about-the-characters__block-character-characteristics'>
+                    <div className='about-the-characters__block-character-characteristic'>
+                        <span>Имя</span>
+                        <span>{characters.find(x => x.active)?.name}</span>
+                    </div>
+                    <div className='about-the-characters__block-character-characteristic'>
+                        <span>Возраст</span>
+                        <span>{characters.find(x => x.active)?.age} цикл</span>
+                    </div>
+                    <div className='about-the-characters__block-character-characteristic'>
+                        <span>Раса (Нация)</span>
+                        <span>{races.find(x => x.id === characters.find(x => x.active)?.raceId)?.name} ({nations.find(x => x.id === characters.find(x => x.active)?.nationId)?.name})</span>
+                    </div>
+                    <div className='about-the-characters__block-character-characteristic'>
+                        <span>Страна</span>
+                        <span>{countries.find(x => x.id === characters.find(x => x.active)?.countryId)?.name}</span>
+                    </div>
+                    <div className='about-the-characters__block-character-characteristic'>
+                        <span>Фракция</span>
+                        <span>{fractions.find(x => x.id === characters.find(x => x.active)?.fractionId)?.name}</span>
+                    </div>
+                </div>
+                <div className='about-the-characters__block-character-biography'>
+                    <span>{characters.find(x => x.active)?.biography}</span>
+                </div>
+                <div className='about-the-characters__block-character-action'>
+                    <a className='base__button'>Играть</a>
+                </div>
             </div>
         </div>
     );

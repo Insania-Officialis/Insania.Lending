@@ -1,0 +1,100 @@
+//Блок информации о персонажах
+.about-the-characters__block {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 5rem 10rem;
+}
+
+//Текст заголовка в информации о персонажах
+.about-the-characters__text-title {
+    font-size: 1.5rem;
+}
+
+//Блок описания в информации о персонажах
+.about-the-characters__block-description {
+    display: flex;
+    justify-content: space-between;
+}
+
+//Текст описания в информации о персонажах
+.about-the-characters__text-description {
+    width: 50%;
+}
+
+//Блок действий в информации о персонажах
+.about-the-characters__block-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+//Блок персонажа в информации о персонажах
+.about-the-characters__block-characters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+//Активный блок изображения персонажа в информации о персонажах
+.about-the-characters__block-image-character--active {
+    border: .1rem solid $color__text--primary;
+    border-radius: 1rem;
+}
+
+//Изображение персонажа в информации о персонажах
+.about-the-characters__image-character {
+    padding: 1rem;
+    height: 15rem;
+}
+
+//Блок информации о персонаже в информации о персонажах
+.about-the-characters__block-character-information {
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: $background__body--primary;
+    border: 0.1rem solid hsl(0, 0%, 75%);
+    border-radius: 1rem;
+}
+
+//Блок информации о персонаже в информации о персонажах
+.about-the-characters__block-character-information {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: $background__body--primary;
+    border: 0.1rem solid hsl(0, 0%, 75%);
+    border-radius: 1rem;
+}
+
+//Блок характеристик о персонаже в информации о персонажах
+.about-the-characters__block-character-characteristics {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+}
+
+//Блок характеристики о персонаже в информации о персонажах
+.about-the-characters__block-character-characteristic {
+    display: flex;
+    gap: 1rem;
+}
+
+//Блок биографии о персонаже в информации о персонажах
+.about-the-characters__block-character-biography {
+    display: flex;
+    flex: 2;
+}
+
+//Блок действия о персонаже в информации о персонажах
+.about-the-characters__block-character-action {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex: 1;
+}
