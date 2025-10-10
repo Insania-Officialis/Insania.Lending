@@ -25,6 +25,29 @@ a {
   font-size: 1.25rem;
 }
 
+.base__circle {
+  width: 1rem;
+  height: 1rem;
+  background-color: hsl(0, 0%, 75%);
+  border-radius: 100%;
+}
+
+.base__arrow--right {
+  width: 0;
+  height: 0;
+  border-top: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  border-left: 2rem solid hsl(0, 0%, 75%);
+}
+
+.base__arrow--left {
+  width: 0;
+  height: 0;
+  border-top: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  border-right: 2rem solid hsl(0, 0%, 75%);
+}
+
 @font-face {
   font-family: "Georgia";
   src: url("/fonts/Georgia.ttf");
@@ -437,6 +460,65 @@ a {
   align-items: center;
   justify-content: end;
   flex: 1;
+}
+
+.about-the-events__block {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 5rem 10rem;
+}
+
+.about-the-events__text-title {
+  font-size: 1.5rem;
+}
+
+.about-the-events__block-event {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 70vh;
+  padding: 2rem;
+  border: 0.1rem solid hsl(0, 0%, 75%);
+  border-radius: 3rem;
+}
+
+.about-the-events__block-event-description {
+  display: flex;
+  justify-content: end;
+}
+
+.about-the-events__block-inner-event-description {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  height: 50%;
+  width: 30%;
+  background-color: hsl(0, 0%, 10%);
+  border: 0.1rem solid hsl(0, 0%, 75%);
+  border-radius: 1rem;
+}
+
+.about-the-events__block-event-pagination {
+  display: flex;
+  align-items: end;
+}
+
+.about-the-events__block-inner-event-pagination {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: hsl(0, 0%, 20%);
+  border-radius: 1rem;
+}
+
+.about-the-events__button-event-pagination {
+  display: flex;
+  padding: 1rem;
+  background-color: hsl(0, 0%, 10%);
+  border-radius: 100%;
 }
 
 .index__block {

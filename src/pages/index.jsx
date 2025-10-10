@@ -6,6 +6,7 @@ import { AboutTheRaces } from '../components/about_the_races/about_the_races.jsx
 import { AboutTheCountries } from '../components/about_the_countries/about_the_countries.jsx';
 import { CallToAction } from '../components/call_to_action/call_to_action.jsx';
 import { AboutTheCharacters } from '../components/about_the_characters/about_the_characters.jsx';
+import { AboutTheEvents } from '../components/about_the_events/about_the_events.jsx';
 
 export default function Index() {
     //Формирование клиента запросов
@@ -407,6 +408,45 @@ export default function Index() {
         },
     ];
 
+    //Моковый массив событий
+    const mockEvents = [
+        {
+            id: 1,
+            url: '/images/background.png',
+            active: true,
+            title: 'Заголовок',
+            description: 'Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Используется для образца шрифта и текста, а также для заполнения полей на странице.',
+        },
+        {
+            id: 2,
+            url: '/images/background.png',
+            active: true,
+            title: 'Заголовок',
+            description: 'Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Используется для образца шрифта и текста, а также для заполнения полей на странице.',
+        },
+        {
+            id: 3,
+            url: '/images/background.png',
+            active: true,
+            title: 'Заголовок',
+            description: 'Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Используется для образца шрифта и текста, а также для заполнения полей на странице.',
+        },
+        {
+            id: 4,
+            url: '/images/background.png',
+            active: true,
+            title: 'Заголовок',
+            description: 'Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Используется для образца шрифта и текста, а также для заполнения полей на странице.',
+        },
+        {
+            id: 5,
+            url: '/images/background.png',
+            active: true,
+            title: 'Заголовок',
+            description: 'Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Используется для образца шрифта и текста, а также для заполнения полей на странице.',
+        }
+    ];
+
     //Вывод основного содержимого
     return (
         <QueryClientProvider client={queryClient}>
@@ -418,6 +458,7 @@ export default function Index() {
                     <AboutTheCountries countries={mockCountries} />
                     <CallToAction />
                     <AboutTheCharacters characters={mockCharacters} races={mockRaces} nations={mockNations} countries={mockCountries} fractions={mockFractions} />
+                    <AboutTheEvents events={mockEvents} />
                 </div>
             </div>
         </QueryClientProvider>

@@ -1,8 +1,5 @@
 //Компонент информации о персонажах
 export function AboutTheCharacters({ characters, races, nations, countries, fractions }) {
-    console.log(fractions.find(x => x.id === characters.find(x => x.active)?.fractionId)?.name);
-    console.log(characters.find(x => x.active)?.fractionId);
-    console.log(fractions);
     //Возврат компонента
     return (
         <div className='about-the-characters__block'>

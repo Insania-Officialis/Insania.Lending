@@ -1,4 +1,4 @@
-﻿@use "../base/colors";
+@use "../base/colors";
 
 //Страница
 html {
@@ -29,4 +29,28 @@ a {
     border: .1rem solid $color__text--primary;
     border-radius: 2rem;
     font-size: 1.25rem;
+}
+
+//Базовый круг
+.base__circle {
+    width: 1rem;
+    height: 1rem;
+    background-color: $color__text--primary;
+    border-radius: 100%;
+}
+
+.base__arrow--right {
+    width: 0;
+    height: 0;
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    border-left: 2rem solid $color__text--primary;
+}
+
+.base__arrow--left {
+    width: 0;
+    height: 0;
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    border-right: 2rem solid $color__text--primary;
 }
