@@ -521,6 +521,44 @@ a {
   border-radius: 100%;
 }
 
+.footer__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+  padding: 5rem 10rem;
+}
+
+.footer__block-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  width: 40%;
+}
+
+.footer__block-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer__block-contacts {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0;
+  width: 100%;
+  border-top: 0.1rem solid hsl(0, 0%, 75%);
+  border-bottom: 0.1rem solid hsl(0, 0%, 75%);
+}
+
+.footer__block-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 .index__block {
   background-image: url("/images/background.png");
   background-attachment: fixed;

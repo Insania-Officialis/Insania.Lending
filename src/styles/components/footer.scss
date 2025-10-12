@@ -1,0 +1,42 @@
+//Блок нижнего колонтитула
+.footer__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10rem;
+    padding: 5rem 10rem;
+}
+
+//Внутренни блок нижнего колонтитула
+.footer__block-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    width: 40%;
+}
+
+//Блок действий нижнего колонтитула
+.footer__block-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+//Блок контактов нижнего колонтитула
+.footer__block-contacts {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+    width: 100%;
+    border-top: .1rem solid $color__text--primary;
+    border-bottom: .1rem solid $color__text--primary;
+}
+
+//Блок логотипа нижнего колонитула
+.footer__block-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}

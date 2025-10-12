@@ -7,6 +7,7 @@ import { AboutTheCountries } from '../components/about_the_countries/about_the_c
 import { CallToAction } from '../components/call_to_action/call_to_action.jsx';
 import { AboutTheCharacters } from '../components/about_the_characters/about_the_characters.jsx';
 import { AboutTheEvents } from '../components/about_the_events/about_the_events.jsx';
+import { Footer } from '../components/footer/footer.jsx';
 
 export default function Index() {
     //Формирование клиента запросов
@@ -459,6 +460,7 @@ export default function Index() {
                     <CallToAction />
                     <AboutTheCharacters characters={mockCharacters} races={mockRaces} nations={mockNations} countries={mockCountries} fractions={mockFractions} />
                     <AboutTheEvents events={mockEvents} />
+                    <Footer />
                 </div>
             </div>
         </QueryClientProvider>
