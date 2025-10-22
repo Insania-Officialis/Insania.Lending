@@ -47,12 +47,14 @@
 		* color - цвет
 		* image - изображение
 		* attachment - позиция изображения
+		* clip - расположение изображения
 	* box-shadow -тень
 	* color - цвет контента
 	* opacity - прозрачность
 	* text-decoration - оформление текста
 	* appearance - стили элементов для платформы
 	* aspect-ratio - сохранение пропорций
+	* filter - цветовой фильтр
 * Шрифт
 	* font-family - семейство шрифта
 	* font-size - размер шрифта
