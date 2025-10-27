@@ -195,3 +195,45 @@
 .about-the-races__image-nation--active {
     border: .1rem solid $color__text--primary;
 }
+
+//ИНФОРМАЦИЯ О СТРАНАХ
+
+//Блок стран в информации о странах
+.about-the-countries__block-countries {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+//Блок страны в информации о странах
+.about-the-countries__block-country {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(25% - 1rem);
+    align-items: center;
+    padding-bottom: 1rem;
+    border: .1rem solid $color__text--primary;
+    border-radius: 1rem;
+}
+
+//Изображение страны в информации о странах
+.about-the-countries__image-country {
+    border-radius: 1rem 1rem 0 0;
+}
+
+//Блок описания страны в информации о странах
+.about-the-countries__block-description-country {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: .75rem;
+    padding: 1.5rem;
+    width: 100%;
+}
+
+//Блок кнопки карты в информации о странах
+.about-the-countries__block-button-map {
+    display: flex;
+    justify-content: center;
+}

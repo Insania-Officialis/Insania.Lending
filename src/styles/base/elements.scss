@@ -65,13 +65,23 @@ h5 {
     font-size: 1.125rem;
 }
 
-//Базовая кнопка
-.base__button {
+//Базовые кнопки
+.base__button,
+.base__button-simple {
     padding: 1.25rem 2.5rem;
     line-height: 1rem;
     border-radius: .25rem;
-    background-color: $background__body--accent;
     font-size: 1.25rem;
+}
+
+//Базовая кнопка
+.base__button {
+    background-color: $background__body--accent;
+}
+
+//Базовая простая кнопка
+.base__button-simple {
+    background-color: $background__body--seconadary;
 }
 
 //Базовые линии
@@ -103,6 +113,7 @@ h5 {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+    padding: 7.5rem 0;
     line-height: 1;
 }
 

@@ -69,7 +69,7 @@ export default function Index() {
             id: 10,
             name: 'Дварф',
             active: true,
-            description: 'Дварфы - ',
+            description: 'Дварфы - Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель',
             countries: ['Королевство Нордер', 'Королевство Вервирунг'],
             image: 'images/ichthyid.png'
         },
@@ -129,7 +129,7 @@ export default function Index() {
         {
             id: 1,
             name: 'Отвергунтый ихтид',
-            description: 'Отвергунтые ихтиды - ',
+            description: 'Отвергунтые ихтиды - Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель',
             active: true,
             image: 'images/ichthyid.png'
         },
@@ -465,22 +465,26 @@ export default function Index() {
         {
             id: 1,
             name: 'Альвраатская империя',
-            description: 'Альвраатская империя - '
+            description: 'Альвраатская империя - Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель',
+            image: 'images/alvraat.png'
         },
         {
             id: 2,
             name: 'Княжество Саорса',
-            description: 'Княжество Саорса - '
+            description: 'Княжество Саорса - ',
+            image: 'images/alvraat.png'
         },
         {
             id: 3,
             name: 'Королевство Берген',
-            description: 'Королевство Берген - '
+            description: 'Королевство Берген - ',
+            image: 'images/alvraat.png'
         },
         {
             id: 4,
             name: 'Фесгарское княжество',
-            description: 'Фесгарское княжество - '
+            description: 'Фесгарское княжество - ',
+            image: 'images/alvraat.png'
         },
         {
             id: 5,
@@ -888,6 +892,38 @@ export default function Index() {
                                 <h3>{nations.find(x => x.active)?.name}</h3>
                                 <h4>{nations.find(x => x.active)?.description}</h4>
                             </div>
+                        </div>
+                    </div>
+                    <div id='country' className='base__block'>
+                        <div className='base__block-description'>
+                            <div className='base__block-text-description'>
+                                <h2>Страны</h2>
+                                <h4>Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба»</h4>
+                            </div>
+                            <div className='base__block-actions-description'>
+                                <div className='base__block-arrow--left'>
+                                    <a className='base__arrow--left'></a>
+                                </div>
+                                <div className='base__block-arrow--right'>
+                                    <a className='base__arrow--right'></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='about-the-countries__block-countries'>
+                            {countries.slice(0, 4).map(country => (
+                                <div key={country.id} className='about-the-countries__block-country'>
+                                    <img src={country.image} alt='' className='about-the-countries__image-country' />
+                                    <div className='about-the-countries__block-description-country'>
+                                        <h4>{country.name}</h4>
+                                        <div className='base__line'></div>
+                                        <h4>{country.description}</h4>
+                                    </div>
+                                    <a className='base__button-simple'>Подробнее</a>
+                                </div>
+                            ))}
+                        </div>
+                        <div className='about-the-countries__block-button-map'>
+                            <a className='base__button-simple'>Посмотреть интерактивную карту</a>
                         </div>
                     </div>
                 </div>

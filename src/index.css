@@ -55,12 +55,20 @@ h5 {
   font-size: 1.125rem;
 }
 
-.base__button {
+.base__button,
+.base__button-simple {
   padding: 1.25rem 2.5rem;
   line-height: 1rem;
   border-radius: 0.25rem;
-  background-color: hsl(0, 100%, 33%);
   font-size: 1.25rem;
+}
+
+.base__button {
+  background-color: hsl(0, 100%, 33%);
+}
+
+.base__button-simple {
+  background-color: hsl(0, 0%, 20%);
 }
 
 .base__line,
@@ -87,6 +95,7 @@ h5 {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  padding: 7.5rem 0;
   line-height: 1;
 }
 
@@ -355,4 +364,39 @@ h5 {
 
 .about-the-races__image-nation--active {
   border: 0.1rem solid hsl(0, 0%, 100%);
+}
+
+.about-the-countries__block-countries {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.about-the-countries__block-country {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 calc(25% - 1rem);
+  align-items: center;
+  padding-bottom: 1rem;
+  border: 0.1rem solid hsl(0, 0%, 100%);
+  border-radius: 1rem;
+}
+
+.about-the-countries__image-country {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.about-the-countries__block-description-country {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.about-the-countries__block-button-map {
+  display: flex;
+  justify-content: center;
 }
