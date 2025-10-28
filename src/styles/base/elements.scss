@@ -117,6 +117,25 @@ h5 {
     line-height: 1;
 }
 
+//Базовый центральный блок
+.base__block-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+//Внутренний базовый центральный блок
+.base__block-center-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3.75rem;
+    text-align: center;
+    max-width: 50rem;
+}
+
 //Базовый блок описания
 .base__block-description {
     display: flex;

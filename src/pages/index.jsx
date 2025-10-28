@@ -811,8 +811,8 @@ export default function Index() {
                     </div>
                 </div>
                 <div className='index__block-inner'>
-                    <div className='about-the-project__block'>
-                        <div className='about-the-project__block-inner'>
+                    <div className='base__block-center'>
+                        <div className='base__block-center-inner'>
                             <div className='about-the-project__block-title'>
                                 <h1>Insania</h1>
                                 <div className='about-the-project__block-subtitle'>
@@ -821,7 +821,7 @@ export default function Index() {
                                     <div className='base__line--right'></div>
                                 </div>
                             </div>
-                            <h4 className='about-the-project__text-description'>Мир, где множество разумных творят магию и искусства, ведут торговлю и ремёсла, поклоняются богам, воюют и интригуют. Мир, ставший домом для множества рас. Мир, где каждый может побороться за место под солнцем, но не каждый победит.</h4>
+                            <h4>Мир, где множество разумных творят магию и искусства, ведут торговлю и ремёсла, поклоняются богам, воюют и интригуют. Мир, ставший домом для множества рас. Мир, где каждый может побороться за место под солнцем, но не каждый победит.</h4>
                             <a className='base__button'>Начать игру</a>
                         </div>
                     </div>
@@ -924,6 +924,14 @@ export default function Index() {
                         </div>
                         <div className='about-the-countries__block-button-map'>
                             <a className='base__button-simple'>Посмотреть интерактивную карту</a>
+                        </div>
+                    </div>
+                    <div className='base__block-center'>
+                        <div className='base__block-center-inner'>
+                            <h4>Начните играть</h4>
+                            <h1>СЕЙЧАС</h1>
+                            <h4>Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Используется для образца шрифта и текста, а также для заполнения полей на странице.</h4>
+                            <a className='base__button'>Пройти регистрацию</a>
                         </div>
                     </div>
                 </div>
