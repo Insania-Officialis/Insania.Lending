@@ -226,3 +226,8 @@ h5 {
     border-radius: 1rem;
     background-color: $background__body--seconadary;
 }
+
+//Нективное базовое изображение
+.base__image--inactive {
+    filter: grayscale(100%);
+}

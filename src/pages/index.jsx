@@ -632,7 +632,7 @@ export default function Index() {
         {
             id: 1,
             name: 'Клаавин из дома Миритрант',
-            biography: 'Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель',
+            biography: 'Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель. Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель',
             age: 21,
             raceId: 1,
             nationId: 1,
@@ -708,7 +708,8 @@ export default function Index() {
             age: 21,
             countryId: 1,
             fractionId: 1,
-            active: false
+            active: false,
+            image: 'images/ichthyid.png'
         },
         {
             id: 9,
@@ -717,7 +718,8 @@ export default function Index() {
             age: 21,
             countryId: 1,
             fractionId: 1,
-            active: false
+            active: false,
+            image: 'images/ichthyid.png'
         },
         {
             id: 10,
@@ -726,7 +728,8 @@ export default function Index() {
             age: 21,
             countryId: 1,
             fractionId: 1,
-            active: false
+            active: false,
+            image: 'images/ichthyid.png'
         },
     ];
 
@@ -845,7 +848,7 @@ export default function Index() {
                                 {races.map(race => {
                                     return (
                                         <div key={race.id} className='about-the-races__block-races-list-item'>
-                                            <img src={race.image} alt='' className={race.active ? 'about-the-races__image-race--active' : 'about-the-races__image-race'} />
+                                            <img src={race.image} alt='' className={'about-the-races__image-race' + (race.active ? '' : ' base__image--inactive')} />
                                             <span>{race.name}</span>
                                         </div>
                                     )
@@ -932,6 +935,59 @@ export default function Index() {
                             <h1>СЕЙЧАС</h1>
                             <h4>Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, вставляемый в макет страницы). Используется для образца шрифта и текста, а также для заполнения полей на странице.</h4>
                             <a className='base__button'>Пройти регистрацию</a>
+                        </div>
+                    </div>
+                    <div id='character' className='base__block'>
+                        <div className='base__block-description'>
+                            <div className='base__block-text-description'>
+                                <h2>Персонажи</h2>
+                                <h4>Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба»</h4>
+                            </div>
+                            <div className='base__block-actions-description'>
+                                <div className='base__block-arrow--left'>
+                                    <a className='base__arrow--left'></a>
+                                </div>
+                                <div className='base__block-arrow--right'>
+                                    <a className='base__arrow--right'></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='about-the-characters__block-characters'>
+                            {characters.map(character => {
+                                return (
+                                    <img key={character.id} src={character.image} alt='' className={'about-the-characters__image-character' + (character.active ? '' : ' base__image--inactive')} />
+                                );
+                            })}
+                        </div>
+                        <div className='about-the-characters__block-character-information'>
+                            <div className='about-the-characters__block-character-biography'>
+                                <span>{characters.find(x => x.active)?.biography}</span>
+                            </div>
+                            <div className='about-the-characters__block-character-characteristics'>
+                                <div className='about-the-characters__block-character-characteristic'>
+                                    <span>Имя</span>
+                                    <span>{characters.find(x => x.active)?.name}</span>
+                                </div>
+                                <div className='about-the-characters__block-character-characteristic'>
+                                    <span>Возраст</span>
+                                    <span>{characters.find(x => x.active)?.age} цикл</span>
+                                </div>
+                                <div className='about-the-characters__block-character-characteristic'>
+                                    <span>Раса (Нация)</span>
+                                    <span>{races.find(x => x.id === characters.find(x => x.active)?.raceId)?.name} ({nations.find(x => x.id === characters.find(x => x.active)?.nationId)?.name})</span>
+                                </div>
+                                <div className='about-the-characters__block-character-characteristic'>
+                                    <span>Страна</span>
+                                    <span>{countries.find(x => x.id === characters.find(x => x.active)?.countryId)?.name}</span>
+                                </div>
+                                <div className='about-the-characters__block-character-characteristic'>
+                                    <span>Фракция</span>
+                                    <span>{fractions.find(x => x.id === characters.find(x => x.active)?.fractionId)?.name}</span>
+                                </div>
+                                <div className='about-the-characters__block-character-action'>
+                                    <a className='base__button'>Играть</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

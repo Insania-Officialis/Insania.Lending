@@ -135,20 +135,9 @@
 }
 
 //Изображение расы в информации о расах
-.about-the-races__image-race,
-.about-the-races__image-race--active {
+.about-the-races__image-race {
     height: 5rem;
     border-radius: 100%;
-}
-
-//Изображение расы в информации о расах
-.about-the-races__image-race {
-    filter: grayscale(100%);
-}
-
-//Активное изображение расы в информации о расах
-.about-the-races__image-race--active {
-    filter: grayscale(0%);
 }
 
 //Блок заголовка нации в информации о расах
@@ -217,4 +206,62 @@
 .about-the-countries__block-button-map {
     display: flex;
     justify-content: center;
+}
+
+//ИНФОРМАЦИЯ О ПЕРСОНАЖАХ
+
+//Блок персонажа в информации о персонажах
+.about-the-characters__block-characters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+//Изображение персонажа в информации о персонажах
+.about-the-characters__image-character {
+    padding: 1rem;
+    height: 15rem;
+}
+
+//Блок информации о персонаже в информации о персонажах
+.about-the-characters__block-character-information {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+//Блок характеристик о персонаже в информации о персонажах
+.about-the-characters__block-character-characteristics {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+//Блок характеристики о персонаже в информации о персонажах
+.about-the-characters__block-character-characteristic {
+    display: flex;
+    gap: 1rem;
+}
+
+//Блок биографии о персонаже в информации о персонажах
+.about-the-characters__block-character-biography {
+    display: flex;
+    flex: 2;
+    padding: 2rem;
+    background-color: $background__body--primary;
+    border: 0.1rem solid hsl(0, 0%, 75%);
+    border-radius: 1rem;
+}
+
+//Блок действия о персонаже в информации о персонажах
+.about-the-characters__block-character-action {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    flex: 1;
 }

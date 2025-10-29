@@ -194,6 +194,10 @@ h5 {
   background-color: hsl(0, 0%, 20%);
 }
 
+.base__image--inactive {
+  filter: grayscale(100%);
+}
+
 @font-face {
   font-family: "Georgia";
   src: url("/fonts/Georgia.ttf");
@@ -330,18 +334,9 @@ h5 {
   gap: 0.25rem;
 }
 
-.about-the-races__image-race,
-.about-the-races__image-race--active {
+.about-the-races__image-race {
   height: 5rem;
   border-radius: 100%;
-}
-
-.about-the-races__image-race {
-  filter: grayscale(100%);
-}
-
-.about-the-races__image-race--active {
-  filter: grayscale(0%);
 }
 
 .about-the-races__block-title-nation {
@@ -399,4 +394,53 @@ h5 {
 .about-the-countries__block-button-map {
   display: flex;
   justify-content: center;
+}
+
+.about-the-characters__block-characters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.about-the-characters__image-character {
+  padding: 1rem;
+  height: 15rem;
+}
+
+.about-the-characters__block-character-information {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.about-the-characters__block-character-characteristics {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.about-the-characters__block-character-characteristic {
+  display: flex;
+  gap: 1rem;
+}
+
+.about-the-characters__block-character-biography {
+  display: flex;
+  flex: 2;
+  padding: 2rem;
+  background-color: hsl(0, 0%, 10%);
+  border: 0.1rem solid hsl(0, 0%, 75%);
+  border-radius: 1rem;
+}
+
+.about-the-characters__block-character-action {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  flex: 1;
 }

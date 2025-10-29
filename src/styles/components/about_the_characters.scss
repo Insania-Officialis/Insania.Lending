@@ -53,15 +53,6 @@
 
 //Блок информации о персонаже в информации о персонажах
 .about-the-characters__block-character-information {
-    justify-content: space-between;
-    padding: 2rem;
-    background-color: $background__body--primary;
-    border: 0.1rem solid hsl(0, 0%, 75%);
-    border-radius: 1rem;
-}
-
-//Блок информации о персонаже в информации о персонажах
-.about-the-characters__block-character-information {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
