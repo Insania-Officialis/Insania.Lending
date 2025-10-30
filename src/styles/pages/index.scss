@@ -265,3 +265,51 @@
     justify-content: center;
     flex: 1;
 }
+
+//ИНФОРМАЦИЯ О ПЕРСОНАЖАХ
+
+//Блок описания события в информации о событиях
+.about-the-events__block-event-description {
+    display: flex;
+    justify-content: end;
+}
+
+//Внутренний блок описания события в информации о событиях
+.about-the-events__block-inner-event-description {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    height: 50%;
+    width: 30%;
+    background-color: $background__body--primary;
+    border: .1rem solid $color__text--primary;
+    border-radius: 1rem;
+}
+
+//Блок события в информации о событиях
+.about-the-events__block-event {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 70vh;
+    padding: 2rem;
+    border: .1rem solid $color__text--primary;
+    border-radius: 3rem;
+}
+
+//Блок пагинации события в информации о событиях
+.about-the-events__block-event-pagination {
+    display: flex;
+    align-items: end;
+}
+
+//Внутренний блок пагинации события в информации о событиях
+.about-the-events__block-inner-event-pagination {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: $background__body--primary;
+    border-radius: 1rem;
+}

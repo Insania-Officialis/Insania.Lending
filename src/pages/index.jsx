@@ -794,6 +794,7 @@ export default function Index() {
         { href: '#events', title: 'Ивенты' },
     ];
 
+    //Получение видимых наций
     let visibleNations = [...nations];
     if (nations.length > 6) visibleNations = nations.slice(0, 6);
 
@@ -986,6 +987,37 @@ export default function Index() {
                                 </div>
                                 <div className='about-the-characters__block-character-action'>
                                     <a className='base__button'>Играть</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='events' className='base__block'>
+                        <div className='base__block-description'>
+                            <div className='base__block-text-description'>
+                                <h2>Актуальные события</h2>
+                                <h4>Классический текст-«рыба» (условный, зачастую бессмысленный текст-заполнитель, в текст-«рыба»</h4>
+                            </div>
+                        </div>
+                        <div className='about-the-events__block-event' style={{ backgroundImage: `url(${event?.url}` }}>
+                            <div className='about-the-events__block-event-description'>
+                                <div className='about-the-events__block-inner-event-description'>
+                                    <span>{event?.title}</span>
+                                    <span>{event?.description}</span>
+                                </div>
+                            </div>
+                            <div className='about-the-events__block-event-pagination'>
+                                <div className='about-the-events__block-inner-event-pagination'>
+                                    {events.map(x => {
+                                        return (
+                                            <div key={x.id} className='base__circle'></div>
+                                        )
+                                    })}
+                                    <div className='base__block-arrow--left'>
+                                        <a className='base__arrow--left'></a>
+                                    </div>
+                                    <div className='base__block-arrow--right'>
+                                        <a className='base__arrow--right'></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
